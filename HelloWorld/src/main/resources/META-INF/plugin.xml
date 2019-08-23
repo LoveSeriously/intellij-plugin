@@ -1,0 +1,36 @@
+<idea-plugin>
+    <id>com.loveseriouly.HelloWorld</id>
+    <name>loveserioulye</name>
+    <vendor email="support@loveseriouly.com" url="http://www.loveseriouly.com">loveseriouly</vendor>
+
+    <description><![CDATA[
+    loveseriouly
+    loveseriouly
+    loveseriouly
+    ]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+        <applicationService serviceImplementation="HelloWorldApplicationComponent"/>
+        <applicationConfigurable instance="HelloWorldApplicationComponent"/>
+    </extensions>
+
+    <application-components>
+        <component>
+            <implementation-class>HelloWorldApplicationComponent</implementation-class>
+        </component>
+    </application-components>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="SayHello" class="SayHelloAction" text="Say Hello!">
+            <add-to-group group-id="WindowMenu" anchor="first"/>
+        </action>
+    </actions>
+</idea-plugin>

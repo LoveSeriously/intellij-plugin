@@ -1,0 +1,27 @@
+<idea-plugin>
+    <id>loveSeriously.WisdomTongRen</id>
+    <name>Wisdom tongren</name>
+    <vendor email="support@loveSeriously.com" url="http://www.loveSeriously.com">loveSeriously</vendor>
+
+    <description><![CDATA[
+            <p>生成智慧铜仁数据字典代码</p>
+    ]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="com.loveseriously.NewTemplatedWidgetAction" class="com.loveseriously.NewTemplatedWidgetAction"
+                text="NewTemplatedWidgetAction" description="自定模板变量">
+            <add-to-group group-id="WindowMenu" anchor="after" relative-to-action="FileChooser.NewFile"/>
+        </action>
+    </actions>
+</idea-plugin>

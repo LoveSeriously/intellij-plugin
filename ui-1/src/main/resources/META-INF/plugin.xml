@@ -1,0 +1,37 @@
+<idea-plugin>
+    <id>com.loveseriously.ui-1</id>
+    <name>loveseriously loveseriously loveseriously here</name>
+    <vendor email="support@loveseriously.com" url="http://www.loveseriously.com">loveseriously</vendor>
+
+    <description><![CDATA[
+    <p>
+        <ul>
+            <li>UI 测试案例: 设置中配置编辑UI</li>
+            <li>UI 测试案例</li>
+            <li>UI 测试案例</li>
+            <li>UI 测试案例</li>
+            <li>UI 测试案例</li>
+            <li>UI 测试案例</li>
+            <li>UI 测试案例</li>
+        </ul>
+    </p>
+    ]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+        <applicationConfigurable groupId="editor" id="ConfigurableOne" instance="com.loveseriously.configurable.ConfigurableOne"/>
+        <projectConfigurable groupId="ConfigurableOne" id="ConfigurableThree" instance="com.loveseriously.configurable.ConfigurableThree"/>
+
+        <applicationService serviceInterface="com.loveseriously.service.IOneService" serviceImplementation="com.loveseriously.service.impl.IOneServiceImpl"/>
+        <projectService serviceInterface="com.loveseriously.service.IThreeService" serviceImplementation="com.loveseriously.service.impl.IThreeServiceImpl"/>
+    </extensions>
+    <actions>
+        <!-- Add your actions here -->
+    </actions>
+</idea-plugin>

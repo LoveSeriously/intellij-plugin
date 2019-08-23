@@ -1,0 +1,28 @@
+<idea-plugin>
+    <id>com.com.loveseriously.one</id>
+    <name>one</name>
+    <vendor email="one@com.loveseriously.com" url="http://www.com.loveseriously.com">com.loveseriously</vendor>
+
+    <description><![CDATA[
+         这是第一个测试版本</br>.
+    ]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+
+    <project-components>
+
+    </project-components>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+        <projectService serviceInterface="com.loveseriously.TT" serviceImplementation="com.loveseriously.impl.TTImpl"/>
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+            </actions>
+</idea-plugin>

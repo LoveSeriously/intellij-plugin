@@ -1,0 +1,41 @@
+<idea-plugin>
+    <id>com.loveseriously.ui-2</id>
+    <name>loveseriously display name here</name>
+    <vendor email="support@loveseriously.com" url="http://www.loveseriously.com">www.loveseriously.com</vendor>
+
+    <description><![CDATA[
+        <p>
+            <ul>
+                <li>UI 测试案例: 模仿文件模板UI</li>
+                <li>UI 测试案例: 弹出对话框UI</li>
+                <li>UI 测试案例</li>
+                <li>UI 测试案例</li>
+                <li>UI 测试案例</li>
+                <li>UI 测试案例</li>
+                <li>UI 测试案例</li>
+            </ul>
+        </p>
+    ]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+        <applicationService serviceInterface="com.loveseriously.service.ITwoService"
+                            serviceImplementation="com.loveseriously.service.impl.ITwoServiceImpl"/>
+
+        <applicationConfigurable groupId="null" id="ConfigurableTwo" instance="com.loveseriously.configurable.ConfigurableTwo"/>
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="myDialog" class="com.loveseriously.action.DialogAction" text="DialogAction"
+                description="弹出提示框，并监将输入内容打印到控制台">
+            <add-to-group group-id="WindowMenu" anchor="first"/>
+        </action>
+    </actions>
+</idea-plugin>
