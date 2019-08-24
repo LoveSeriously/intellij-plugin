@@ -4,8 +4,13 @@
     <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
 
     <description><![CDATA[
-    Enter short description for your plugin here.<br>
-    <em>most HTML tags may be used</em>
+        <ul>
+            <li>使用文件模板的Other项目</li>
+            <li>使用文件模板的Other项目</li>
+            <li>使用文件模板的Other项目</li>
+            <li>使用文件模板的Other项目</li>
+            <li>使用文件模板的Other项目</li>
+        </ul>
     ]]></description>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
@@ -16,6 +21,8 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
+        <!--注册为other模板, other模板有tree结构-->
+        <fileTemplateGroup implementation="com.loveseriously.utils.myTemplateGroupFactory"/>
     </extensions>
 
     <actions>
