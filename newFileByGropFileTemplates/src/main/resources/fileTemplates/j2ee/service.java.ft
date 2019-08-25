@@ -1,0 +1,49 @@
+#if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
+## 首字母都自动转大写
+#set ($upperName = $NAME.substring(0, 1).toUpperCase() + $NAME.substring(1))
+## 首字母都自动转小写
+#set ($lowerName = $NAME.substring(0, 1).toLowerCase() + $NAME.substring(1))
+
+import com.common.base.service.IBaseService;
+import com.common.utils.helper.Pager;
+
+import java.util.List;
+
+
+/**
+ * $Description Service接口.
+ * @author: lw
+ * @date: ${YEAR}-${MONTH}-${DAY}
+ */
+
+public interface I${upperName}Service extends IBaseService {
+
+    /**
+     * 分页
+     * @param page
+     * @param limit
+     * @param ${lowerName}Vo
+     * @return
+     */
+    Pager queryEntityList(Integer page, Integer limit, ${upperName}Vo ${lowerName}Vo);
+
+    /**
+     * 保存or更新
+     * @param ${lowerName}Vo
+     * @return
+     */
+        ${upperName} saveOrUpdate(${upperName}Vo ${lowerName}Vo);
+
+    /**
+     * 删除
+     * @param ids
+     */
+    void delete(String ids);
+
+    /**
+     * 分组统计
+     * @param ${lowerName}Vo 筛选条件
+     * @return
+     */
+    List<List> queryBaseCount(${upperName}Vo ${lowerName}Vo);
+}

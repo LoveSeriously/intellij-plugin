@@ -1,0 +1,12 @@
+#if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
+
+import com.common.base.dao.IBaseDao;
+
+/**
+ * $Description Dao接口.
+ * @author: lw
+ * @date: ${YEAR}-${MONTH}-${DAY}
+ */
+
+public interface I${UPPERNAME}Dao extends IBaseDao {
+}

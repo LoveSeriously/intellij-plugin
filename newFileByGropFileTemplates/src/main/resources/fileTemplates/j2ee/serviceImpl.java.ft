@@ -1,0 +1,98 @@
+#if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
+## 首字母都自动转大写
+#set ($upperName = $NAME.substring(0, 1).toUpperCase() + $NAME.substring(1))
+## 首字母都自动转小写
+#set ($lowerName = $NAME.substring(0, 1).toLowerCase() + $NAME.substring(1))
+
+import com.common.base.service.impl.BaseServiceImpl;
+import com.cloudting.common.utils.chartReport.service.IChartReportService;
+import com.common.utils.helper.Pager;
+import org.apache.commons.lang3.StringUtils;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.MatchMode;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * $Description Service接口实现类.
+ * @author: lw
+ * @date: ${YEAR}-${MONTH}-${DAY}
+ */
+
+@Service("${lowerName}ServiceImpl")
+public class ${upperName}ServiceImpl extends BaseServiceImpl implements I${upperName}Service {
+    @Autowired
+    private I${upperName}Dao ${lowerName}DaoImpl;
+    @Autowired
+    private IChartReportService chartReportServiceImpl;
+
+
+    @Override
+    public Pager queryEntityList(Integer page, Integer limit, ${upperName}Vo ${lowerName}Vo) {
+        List<Criterion> criterionList = new ArrayList<>();
+
+        return this.${lowerName}DaoImpl.queryEntityList(page, limit, criterionList, Order.desc("createTime"), ${upperName}.class);
+    }
+
+    @Override
+    public ${upperName} saveOrUpdate(${upperName}Vo ${lowerName}Vo) {
+        ${upperName} ${lowerName} = new ${upperName}();
+        BeanUtils.copyProperties(${lowerName}Vo, ${lowerName});
+        if(StringUtils.isBlank(${lowerName}.getId())){
+            this.save(${lowerName});
+        }else{
+            this.update(${lowerName});
+        }
+        return ${lowerName};
+    }
+
+    @Override
+    public void delete(String ids) {
+        String[] idz = ids.split(",");
+        for (int i = 0; i < idz.length; i++) {
+            ${upperName} ${lowerName} = this.getEntityById(${upperName}.class, idz[i]);
+            this.delete(${lowerName});
+        }
+    }
+
+    @Override
+    public List<List> queryBaseCount(${upperName}Vo ${lowerName}Vo) {
+        StringBuffer sql = new StringBuffer();
+        sql.append("select demoIsOpen,count(id) from BASE_TESTDEMO where 1=1 ");
+        // 筛选条件
+        if(${lowerName}Vo != null){
+            //...
+        }
+        sql.append(" and demoIsOpen != '' and demoIsOpen is not null group by demoIsOpen");
+        List<Object> list = this.baseDaoImpl.queryBySql(sql.toString());
+
+        List<List> arrayList = new ArrayList<>();
+        List<Map<String, Object>> mapList0 = this.chartReportServiceImpl.queryDictKeysByDictCode2("enterprise_Size");
+        Map<String, Object> map1 = mapList0.get(0);  // map1:(key:数量)
+        Map<String, Object> map2 = mapList0.get(1);  // map2:(key:value)
+
+        if(map1 != null && map1.size() > 0){
+            for (int i = 0; i < list.size(); i++) {
+                Object[] obj = (Object[]) list.get(i);
+
+                map1.put(obj[0].toString(), (BigInteger)obj[1]);
+            }
+            for (String key : map1.keySet()) {        // 将map2的值(数据字典翻译值)作为map的键,将map1的值(统计数量)作为map的值
+                List<String> l = new ArrayList<>();
+                l.add(map2.get(key).toString());
+                l.add(map1.get(key).toString());
+                arrayList.add(l);
+            }
+        }
+
+        return arrayList;
+    }
+}

@@ -1,0 +1,19 @@
+#if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
+## 首字母都自动转大写
+#set ($upperName = $NAME.substring(0, 1).toUpperCase() + $NAME.substring(1))
+## 首字母都自动转小写
+#set ($lowerName = $NAME.substring(0, 1).toLowerCase() + $NAME.substring(1))
+
+import com.common.base.dao.impl.BaseDaoImpl;
+import org.springframework.stereotype.Repository;
+
+
+/**
+ * $Description Dao接口实现类.
+ * @author: lw
+ * @date:  ${YEAR}-${MONTH}-${DAY}
+ */
+
+@Repository("${lowerName}DaoImpl")
+public class ${upperName}DaoImpl extends BaseDaoImpl implements I${upperName}Dao {
+}

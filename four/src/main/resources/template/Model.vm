@@ -8,7 +8,7 @@
 ## Available variables:
 ##  $class0 - the context class
 ##  $class1 - the selected class, like $class2, $class2
-##  $ClassName - generate by the config of "Class Name", the generated class name
+##  $ClassName - generate by the messages of "Class Name", the generated class name
 ##
 ## Class Entry Structure:
 ##  $class0.className - the class Name

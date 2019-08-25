@@ -8,7 +8,7 @@
 ## Available variables:
 ##  $class0 - the context class
 ##  $class1 - the selected class, like $class2, $class2
-##  $ClassName - generate by the config of "Class Name", the generated class name
+##  $ClassName - generate by the messages of "Class Name", the generated class name
 ##
 ## Class Entry Structure:
 ##  $class0.className - the class Name
@@ -47,7 +47,7 @@ import $importer;
 class $ClassName {
 
     /**
-     * 将${class1.ClassName}转换为${class0.ClassName}
+     * 锟斤拷${class1.ClassName}转锟斤拷为${class0.ClassName}
      * @param ${class1Var}
      * @return
      */
@@ -67,7 +67,7 @@ class $ClassName {
     }
 
     /**
-     * 将${class0.ClassName}转换为${class1.ClassName}
+     * 锟斤拷${class0.ClassName}转锟斤拷为${class1.ClassName}
      * @param ${class0Var}
      * @return
      */

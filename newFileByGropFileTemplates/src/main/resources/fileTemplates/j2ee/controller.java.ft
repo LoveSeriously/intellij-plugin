@@ -1,0 +1,158 @@
+#if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
+## 首字母都自动转大写
+#set ($upperName = $NAME.substring(0, 1).toUpperCase() + $NAME.substring(1))
+## 首字母都自动转小写
+#set ($lowerName = $NAME.substring(0, 1).toLowerCase() + $NAME.substring(1))
+
+import com.common.base.controller.BaseController;
+import com.common.utils.helper.Pager;
+import com.google.gson.JsonObject;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+import net.sf.json.JsonConfig;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.util.List;
+
+/**
+ * $Description Controller层.
+ * @author: lw
+ * @date: ${YEAR}-${MONTH}-${DAY}
+ */
+
+@Controller
+@RequestMapping("/${lowerName}")
+public class ${upperName}Controller extends BaseController {
+
+    @Autowired
+    private I${upperName}Service ${lowerName}ServiceImpl;
+
+    /**
+     * 列表页面
+     * @param httpSession
+     * @param request
+     * @param menuCode
+     * @return
+     */
+    @RequestMapping(value = "/${lowerName}_list")
+    public String list(HttpSession httpSession, HttpServletRequest request, String menuCode) {
+        request.setAttribute("menuCode", menuCode);
+        return "/page/${lowerName}/${lowerName}_list";
+    }
+
+    /**
+     * 列表数据加载
+     * @param httpSession
+     * @param response
+     * @param page
+     * @param limit
+     * @param ${lowerName}Vo
+     */
+    @RequestMapping(value = "/${lowerName}_load")
+    public void load(HttpSession httpSession, HttpServletResponse response, Integer page, Integer limit, ${upperName}Vo ${lowerName}Vo) {
+        Pager pager = this.${lowerName}ServiceImpl.queryEntityList(page, limit, ${lowerName}Vo);
+        JSONObject json = new JSONObject();
+        json.put("count", pager.getRowCount()); // 总记录数
+        json.put("code", 0);                    // 状态码
+        JsonConfig config = new JsonConfig();   // 自定义JsonConfig用于过滤Hibernate配置文件所产生的递归数据
+        json.put("data", JSONArray.fromObject(pager.getPageList(), config));
+        this.print(json);
+    }
+
+    /**
+     * 编辑页面
+     * @param httpSession
+     * @param request
+     * @param ${lowerName}Vo
+     * @return
+     */
+    @RequestMapping(value = "/${lowerName}_edit")
+    public String edit(HttpSession httpSession, HttpServletRequest request, ${upperName}Vo ${lowerName}Vo) {
+        if (StringUtils.isNotBlank(${lowerName}Vo.getId())) {
+            ${upperName} ${lowerName} = this.${lowerName}ServiceImpl.getEntityById(${upperName}.class, ${lowerName}Vo.getId());
+            BeanUtils.copyProperties(${lowerName}, ${lowerName}Vo);
+            request.setAttribute("${lowerName}Vo", ${lowerName}Vo);
+        } else {
+            request.setAttribute("${lowerName}Vo", ${lowerName}Vo);
+        }
+        return "/page/${lowerName}/${lowerName}_edit";
+    }
+
+    /**
+     * 保存or更新
+     * @param httpSession
+     * @param response
+     * @param ${lowerName}Vo
+     */
+    @RequestMapping(value = "/${lowerName}_saveOrUpdate")
+    public void saveOrUpdate(HttpSession httpSession, HttpServletResponse response, ${upperName}Vo ${lowerName}Vo) {
+        JsonObject json = new JsonObject();
+        try {
+            this.${lowerName}ServiceImpl.saveOrUpdate(${lowerName}Vo);
+            json.addProperty("result", true);
+        } catch (Exception e) {
+            json.addProperty("result", false);
+            logger.error(e.getMessage(), e);
+        } finally {
+            this.print(json.toString());
+        }
+    }
+
+    /**
+     * 详情页面
+     * @param request
+     * @param id
+     * @return
+     */
+    @RequestMapping(value = "/${lowerName}_detail")
+    public String detail(HttpServletRequest request, String id) {
+        if(StringUtils.isNotBlank(id)){
+            ${upperName} ${lowerName} = this.${lowerName}ServiceImpl.getEntityById(${upperName}.class, id);
+                ${upperName}Vo ${lowerName}Vo = new ${upperName}Vo();
+            BeanUtils.copyProperties(${lowerName}, ${lowerName}Vo);
+            request.setAttribute("${lowerName}Vo", ${lowerName}Vo);
+        }
+        return "/page/${lowerName}/${lowerName}_detail";
+    }
+
+    /**
+     * 删除
+     * @param response
+     * @param ids
+     */
+    @RequestMapping(value = "/${lowerName}_delete")
+    public void delete(HttpServletResponse response, String ids) {
+        JsonObject json = new JsonObject();
+        try {
+            if(StringUtils.isNotBlank(ids)){
+                this.${lowerName}ServiceImpl.delete(ids);
+                json.addProperty("result", true);
+            }
+        } catch (Exception e) {
+            json.addProperty("result", false);
+            logger.error(e.getMessage(), e);
+        } finally {
+            this.print(json.toString());
+        }
+    }
+
+    /**
+     * 分组统计
+     * @param response
+     * @param ${lowerName}Vo    筛选条件
+     */
+    @RequestMapping(value = "/${lowerName}_getBaseCount")
+    public void getBaseCount(HttpServletResponse response, ${upperName}Vo ${lowerName}Vo) {
+        List<List> mapList = this.${lowerName}ServiceImpl.queryBaseCount(${lowerName}Vo);
+        JSONArray jsonArray = JSONArray.fromObject(mapList);
+        this.print(jsonArray.toString());
+    }
+
+}
