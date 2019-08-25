@@ -16,7 +16,10 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
+        <applicationService serviceInterface="com.loveseriously.service.IMyService" serviceImplementation="com.loveseriously.service.impl.IMyServiceImpl"/>
+
         <fileTemplateGroup implementation="com.loveseriously.utils.fileTemplates.MyTemplate3GroupFactory"/>
+        <applicationConfigurable groupId="other" id="MyConfigurable" instance="com.loveseriously.configurable.MyConfigurable"/>
     </extensions>
 
     <actions>
