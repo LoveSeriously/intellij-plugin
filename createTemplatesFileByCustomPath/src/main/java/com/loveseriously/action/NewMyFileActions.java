@@ -33,7 +33,6 @@ public class NewMyFileActions extends NewMyFileActionsBase {
 
     @Override
     protected PsiElement[] doCreate(String name, PsiDirectory directory) {
-        String path = "C:\\Users\\lw\\Desktop\\testDir";
         PsiDirectory dir = null;
         PsiFile[] jsp = createJsp(directory, name);
         PsiClass[] psiClass = createJava(directory, name);

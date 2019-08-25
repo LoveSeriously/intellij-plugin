@@ -11,7 +11,6 @@ import com.intellij.openapi.fileTypes.StdFileTypes;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.*;
 import com.intellij.util.IncorrectOperationException;
-import com.loveseriously.config.MyBundle;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
@@ -68,15 +67,15 @@ public class MyCreateTemplateFactory {
         properties.setProperty(FileTemplate.ATTRIBUTE_NAME, name);
         FileTemplateUtil.putAll(additionalProperties, properties);
 
-        String ext = MyBundle.message("fileTemplates.fileType.jsp.ext");
+        String ext = "jsp";
         String fileName = name + "_" + templateName + "." + ext;
 
-        String path = "C:/Users/lw/Desktop/testDir/";
-        PsiDirectory directory = DirectoryUtil.mkdirs(PsiManager.getInstance(project), path);
 
+        String path = String.format("%s/%s", "C:/Users/lw/Desktop/testDir/", name);
+        dir = DirectoryUtil.mkdirs(PsiManager.getInstance(project), path);
         PsiElement element;
         try {
-            element = FileTemplateUtil.createFromTemplate(template, fileName, additionalProperties, directory, null);
+            element = FileTemplateUtil.createFromTemplate(template, fileName, additionalProperties, dir, null);
         }
         catch (IncorrectOperationException e) {
             throw e;
@@ -105,6 +104,14 @@ public class MyCreateTemplateFactory {
 
         String ext = StdFileTypes.JAVA.getDefaultExtension();
         String fileName = name + "." + ext;
+
+        if (templateName.contains("Impl")) {
+            String path = String.format("%s/%s/%s/Impl/", dir.getVirtualFile().getPath(), name, templateName);
+            dir = DirectoryUtil.mkdirs(PsiManager.getInstance(project), path);
+        } else {
+            String path = String.format("%s/%s/%s/", dir.getVirtualFile().getPath(), name, templateName);
+            dir = DirectoryUtil.mkdirs(PsiManager.getInstance(project), path);
+        }
 
         PsiElement element;
         try {
