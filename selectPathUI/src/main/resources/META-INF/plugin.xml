@@ -1,0 +1,40 @@
+<idea-plugin>
+    <id>com.loveSeriously.selectPathUI</id>
+    <name>Plugin display name here</name>
+    <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+
+    <description><![CDATA[
+    Enter short description for your plugin here.<br>
+    <em>most HTML tags may be used</em>
+    ]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+        <projectConfigurable groupId="other"
+                             groupWeight="140"
+                             key="FileChooser.viewMenuLabelText"
+                             bundle="messages.IdeBundle"
+                             id="File.MyEncoding"
+                             provider="com.intellij.openapi.vfs.encoding.MyFileEncodingConfigurableProvider"/>
+
+        <projectConfigurable groupId="other"
+                             id="UIi"
+                             instance="com.loveSeriously.configurable.UIConfigurableMy"/>
+
+        <applicationService serviceInterface="com.loveSeriously.service.DirPathService"
+                            serviceImplementation="com.loveSeriously.service.impl.DirPathServiceImpl"/>
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="SeletFileDirPath" class="com.loveSeriously.action.MySeletDirPathAction" icon="AllIcons.Actions.Menu_open" text="Add Dir Path" description="选择文件夹">>
+            <add-to-group group-id="WindowMenu" anchor="after" relative-to-action="EditorTab"/>
+         </action>
+    </actions>
+</idea-plugin>
