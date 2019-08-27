@@ -1,11 +1,262 @@
 <idea-plugin>
     <id>com.cloudting.WisdomTongren</id>
-    <name>Plugin display name here</name>
-    <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+    <name>cloudting</name>
+    <vendor email="1397739779@qq.com" url="http://www.cloudting.com">about</vendor>
 
     <description><![CDATA[
-    Enter short description for your plugin here.<br>
-    <em>most HTML tags may be used</em>
+            <h3>S如下格式:</h3>
+            <table width="707">
+                <tbody>
+                    <tr style=";height:43px" class="firstRow">
+                        <td width="150" style="border: 1px solid ; padding: 0px 7px;">
+                            <p style="text-align:center">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">表名</span>
+                            </p>
+                        </td>
+                        <td width="558" colspan="4" style="border-top: 1px solid ; border-right: 1px solid ; border-bottom: 1px solid ; border-image: initial; border-left: none; padding: 0px 7px;">
+                            <p style="text-align:left">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">sub_house_rentsell</span>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="150" valign="top" style="border-right: 1px solid ; border-bottom: 1px solid ; border-left: 1px solid ; border-image: initial; border-top: none; padding: 0px 7px;">
+                            <p style="text-align:right">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">继承BaseModule</span>
+                            </p>
+                        </td>
+                        <td width="558" colspan="4" valign="top" style="border-top: none; border-left: none; border-bottom: 1px solid ; border-right: 1px solid ; padding: 0px 7px;">
+                            <p style="text-align:left">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">是</span>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr style=";height:6px">
+                        <td width="150" valign="top" style="border-right: 1px solid ; border-bottom: 1px solid ; border-left: 1px solid ; border-image: initial; border-top: none; padding: 0px 7px;">
+                            <p style="text-align:right">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">单附件/图片</span>
+                            </p>
+                        </td>
+                        <td width="558" colspan="4" valign="top" style="border-top: none; border-left: none; border-bottom: 1px solid ; border-right: 1px solid ; padding: 0px 7px;">
+                            <p style="text-align:left">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">无</span>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="150" valign="top" style="border-right: 1px solid ; border-bottom: 1px solid ; border-left: 1px solid ; border-image: initial; border-top: none; padding: 0px 7px;">
+                            <p style="text-align:right">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">多附件/图片</span>
+                            </p>
+                        </td>
+                        <td width="558" colspan="4" valign="top" style="border-top: none; border-left: none; border-bottom: 1px solid ; border-right: 1px solid ; padding: 0px 7px;">
+                            <p style="text-align:left">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">多张图片</span>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="150" valign="top" style="border-right: 1px solid ; border-bottom: 1px solid ; border-left: 1px solid ; border-image: initial; border-top: none; padding: 0px 7px;">
+                            <p style="text-align:center">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">名字</span>
+                            </p>
+                        </td>
+                        <td width="145" valign="top" style="border-top: none; border-left: none; border-bottom: 1px solid ; border-right: 1px solid ;padding: 0px 7px;">
+                            <p style="text-align:center">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">字段</span>
+                            </p>
+                        </td>
+                        <td width="89" valign="top" style="border-top: none; border-left: none; border-bottom: 1px solid ; border-right: 1px solid ;  padding: 0px 7px;">
+                            <p style="text-align:center">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">类型</span>
+                            </p>
+                        </td>
+                        <td width="73" valign="top" style="border-top: none; border-left: none; border-bottom: 1px solid ; border-right: 1px solid ; padding: 0px 7px;">
+                            <p style="text-align:center">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">长度</span>
+                            </p>
+                        </td>
+                        <td width="251" valign="top" style="border-top: none; border-left: none; border-bottom: 1px solid ; border-right: 1px solid ;  padding: 0px 7px;">
+                            <p style="text-align:center">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">备注</span>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr style=";height:6px" class="firstRow">
+                        <td width="150" style="border-width: 1px; border-style: solid; border-color:   ; border-image: initial; padding: 0px 7px;">
+                            <p style="text-align:right">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">使用用户</span>
+                            </p>
+                        </td>
+                        <td width="145" style="border-top: 1px solid ; border-right: 1px solid ; border-bottom: 1px solid ; border-image: initial; border-left: none;  padding: 0px 7px;">
+                            <p style="text-align:left">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">userId</span>
+                            </p>
+                        </td>
+                        <td width="89" style="border-top: 1px solid ; border-right: 1px solid ; border-bottom: 1px solid ; border-image: initial; border-left: none; padding: 0px 7px;">
+                            <p style="text-align:left">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">varchar</span>
+                            </p>
+                        </td>
+                        <td width="73" style="border-top: 1px solid ; border-right: 1px solid ; border-bottom: 1px solid ; border-image: initial; border-left: none; padding: 0px 7px;">
+                            <p style="text-align:center">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">32</span>
+                            </p>
+                        </td>
+                        <td width="251" valign="top" style="border-top: 1px solid ; border-right: 1px solid ; border-bottom: 1px solid ; border-image: initial; border-left: none;  padding: 0px 7px;">
+                            <p style="text-align:left">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">关联&nbsp;sub_um_user</span>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr style=";height:6px">
+                        <td width="150" style="border-right: 1px solid ; border-bottom: 1px solid ; border-left: 1px solid ; border-image: initial; border-top: none;padding: 0px 7px;">
+                            <p style="text-align:right">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">设备规格</span>
+                            </p>
+                        </td>
+                        <td width="145" style="border-top: none; border-left: none; border-bottom: 1px solid ; border-right: 1px solid ;>
+                            <p style="text-align:left">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">equipmentParam</span>
+                            </p>
+                        </td>
+                        <td width="89" style="border-top: none; border-left: none; border-bottom: 1px solid ; border-right: 1px solid ; >
+                            <p style="text-align:left">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">blob</span>
+                            </p>
+                        </td>
+                        <td width="73" style="border-top: none; border-left: none; border-bottom: 1px solid ; border-right: 1px solid ; padding: 0px 7px;"></td>
+                        <td width="251" valign="top" style="border-top: none; border-left: none; border-bottom: 1px solid ; border-right: 1px solid ; padding: 0px 7px;">
+                            <p style="text-align:left">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">百度富文本</span>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr style=";height:6px">
+                        <td width="150" style="border-right: 1px solid ; border-bottom: 1px solid ; border-left: 1px solid ; border-image: initial; border-top: none; padding: 0px 7px;">
+                            <p style="text-align:right">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">保修期</span>
+                            </p>
+                        </td>
+                        <td width="145" style="border-top: none; border-left: none; border-bottom: 1px solid ; border-right: 1px solid ; padding: 0px 7px;">
+                            <p style="text-align:left">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">guarantee</span>
+                            </p>
+                        </td>
+                        <td width="89" style="border-top: none; border-left: none; border-bottom: 1px solid ; border-right: 1px solid ; padding: 0px 7px;">
+                            <p style="text-align:left">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">integer</span>
+                            </p>
+                        </td>
+                        <td width="73" style="border-top: none; border-left: none; border-bottom: 1px solid ; border-right: 1px solid ; padding: 0px 7px;">
+                            <p style="text-align:center">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">2</span>
+                            </p>
+                        </td>
+                        <td width="251" valign="top" style="border-top: none; border-left: none; border-bottom: 1px solid ; border-right: 1px solid ; padding: 0px 7px;">
+                            <p style="text-align:left">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">数据字典(wearEquipment_guarantee)</span>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr style=";height:6px">
+                        <td width="150" style="border-right: 1px solid ; border-bottom: 1px solid ; border-left: 1px solid ; border-image: initial; border-top: none; padding: 0px 7px;">
+                            <p style="text-align:right">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">电池容量</span>
+                            </p>
+                        </td>
+                        <td width="145" style="border-top: none; border-left: none; border-bottom: 1px solid ; border-right: 1px solid ;  padding: 0px 7px;">
+                            <p style="text-align:left">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">batteryCapacity</span>
+                            </p>
+                        </td>
+                        <td width="89" style="border-top: none; border-left: none; border-bottom: 1px solid ; border-right: 1px solid ;  padding: 0px 7px;">
+                            <p style="text-align:left">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">integer</span>
+                            </p>
+                        </td>
+                        <td width="73" style="border-top: none; border-left: none; border-bottom: 1px solid ; border-right: 1px solid ;  padding: 0px 7px;">
+                            <p style="text-align:center">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">10</span>
+                            </p>
+                        </td>
+                        <td width="251" valign="top" style="border-top: none; border-left: none; border-bottom: 1px solid ; border-right: 1px solid ;  padding: 0px 7px;">
+                            <p style="text-align:left">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">单位：&nbsp;mAh</span>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr style=";height:6px">
+                        <td width="150" style="border-right: 1px solid ; border-bottom: 1px solid ; border-left: 1px solid ; border-image: initial; border-top: none; padding: 0px 7px;">
+                            <p style="text-align:right">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">创建时间</span>
+                            </p>
+                        </td>
+                        <td width="145" style="border-top: none; border-left: none; border-bottom: 1px solid ; border-right: 1px solid ; padding: 0px 7px;">
+                            <p style="text-align:left">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">createTime</span>
+                            </p>
+                        </td>
+                        <td width="89" style="border-top: none; border-left: none; border-bottom: 1px solid ; border-right: 1px solid ;  padding: 0px 7px;">
+                            <p style="text-align:left">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">date</span>
+                            </p>
+                        </td>
+                        <td width="73" style="border-top: none; border-left: none; border-bottom: 1px solid ; border-right: 1px solid ;  padding: 0px 7px;"></td>
+                        <td width="251" valign="top" style="border-top: none; border-left: none; border-bottom: 1px solid ; border-right: 1px solid ; padding: 0px 7px;">
+                            <p style="text-align:left">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">时间(yyyy-MM-dd&nbsp;HH:mm:SS)</span>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr style=";height:6px">
+                        <td width="150" style="border-right: 1px solid ; border-bottom: 1px solid ; border-left: 1px solid ; border-image: initial; border-top: none; padding: 0px 7px;">
+                            <p style="text-align:right">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">附件大小</span>
+                            </p>
+                        </td>
+                        <td width="145" style="border-top: none; border-left: none; border-bottom: 1px solid ; border-right: 1px solid ; padding: 0px 7px;">
+                            <p style="text-align:left">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">attachSize</span>
+                            </p>
+                        </td>
+                        <td width="89" style="border-top: none; border-left: none; border-bottom: 1px solid ; border-right: 1px solid ; padding: 0px 7px;">
+                            <p style="text-align:left">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">long</span>
+                            </p>
+                        </td>
+                        <td width="73" style="border-top: none; border-left: none; border-bottom: 1px solid ; border-right: 1px solid ;padding: 0px 7px;"></td>
+                        <td width="251" valign="top" style="border-top: none; border-left: none; border-bottom: 1px solid ; border-right: 1px solid ; padding: 0px 7px;"></td>
+                    </tr>
+                    <tr style=";height:6px">
+                        <td width="150" style="border-right: 1px solid ; border-bottom: 1px solid ; border-left: 1px solid ; border-image: initial; border-top: none; padding: 0px 7px;">
+                            <p style="text-align:right">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">占地面积</span>
+                            </p>
+                        </td>
+                        <td width="145" style="border-top: none; border-left: none; border-bottom: 1px solid ; border-right: 1px solid ; padding: 0px 7px;">
+                            <p style="text-align:left">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">coverArea</span>
+                            </p>
+                        </td>
+                        <td width="89" style="border-top: none; border-left: none; border-bottom: 1px solid ; border-right: 1px solid ; padding: 0px 7px;">
+                            <p style="text-align:left">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">double</span>
+                            </p>
+                        </td>
+                        <td width="73" style="border-top: none; border-left: none; border-bottom: 1px solid ; border-right: 1px solid ; padding: 0px 7px;">
+                            <p style="text-align:center">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">8,2</span>
+                            </p>
+                        </td>
+                        <td width="251" valign="top" style="border-top: none; border-left: none; border-bottom: 1px solid ; border-right: 1px solid ; padding: 0px 7px;">
+                            <p style="text-align:left">
+                                <span style="font-size:12px;font-family:&#39;微软雅黑&#39;,sans-serif;color:black">平方米</span>
+                            </p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
     ]]></description>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html

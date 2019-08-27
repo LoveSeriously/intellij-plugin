@@ -1,0 +1,27 @@
+<idea-plugin>
+    <id>com.loveseriously.TableFormattingUI</id>
+    <name>Plugin display name here</name>
+    <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+
+    <description><![CDATA[
+    <p>格式化文档表格的UI</p>
+    ]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="LoveSeriosly.TestAction" class="com.loveseriously.action.TableFortmatingAction"
+                text="TableFortmating Action" description="格式化文档表格Action">
+            <add-to-group group-id="WindowMenu" anchor="after" relative-to-action="MinimizeCurrentWindow"/>
+        </action>
+    </actions>
+</idea-plugin>
