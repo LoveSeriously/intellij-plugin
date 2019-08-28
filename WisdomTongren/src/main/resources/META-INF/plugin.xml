@@ -266,10 +266,15 @@
     -->
 
     <extensions defaultExtensionNs="com.intellij">
-        <!-- Add your extensions here -->
+        <fileTemplateGroup implementation="com.cloudting.intellij.plugin.core.factory.TemplateGroupFactory"/>
+        <applicationService serviceInterface="com.cloudting.intellij.plugin.core.service.ISettingJspDirectoryService" serviceImplementation="com.cloudting.intellij.plugin.core.service.impl.ISettingJspDirectoryServiceImpl"/>
+
+        <projectConfigurable groupId="other" instance="com.cloudting.intellij.plugin.core.configurable.SettingJspDirectoryConfigurable"/>
     </extensions>
 
     <actions>
-        <!-- Add your actions here -->
+        <action id="WisdomTongRen.New" class="com.cloudting.intellij.plugin.core.action.NewFileAction" text="NewFileAction" description="创建文件">
+            <add-to-group group-id="NewGroup" anchor="after" relative-to-action="NewFile"/>
+        </action>
     </actions>
 </idea-plugin>
