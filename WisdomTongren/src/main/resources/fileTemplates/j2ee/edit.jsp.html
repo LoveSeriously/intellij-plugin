@@ -1,20 +1,19 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
     <body>
         <table width="100%" border="0" cellpadding="5" cellspacing="0" style="border-collapse: collapse">
             <tr>
-                <td><font face="verdana" size="-1">This is a built-in template used each time you create
-                    a new Java class, by selecting <i>New | Java Class | Class</i> from the popup menu in one of the project views.<br>
-                    The template is editable. Along with Java expressions and comments, you can also use predefined variables
-                    (listed below) that will then be expanded like macros into the corresponding values.<br>
-                    It is also possible to specify an arbitrary number of custom variables in the format
-                    <b>${&lt;VARIABLE_NAME&gt;}</b>. In this case, before the new
-                    file is created, you will be prompted with a dialog where you can define particular values for all
-                    custom variables.<br>
-                    Using the <b>#parse</b> directive, you can include templates from the <i>Includes</i>
-                    tab, by specifying the full name of the desired template as a parameter in quotation marks.
-                    For example:<br>
+                <td>
+                    这是每次创建新Java类时使用的内置模板，方法是选择New | Java类|其中一个项目视图中的弹出菜单中的类。该模板是可编辑的。
+                    除了Java表达式和注释之外，您还可以使用预定义变量（下面列出），然后将这些变量像宏一样扩展到相应的值中。
+                    也可以以${VARIABLE_NAME}格式指定任意数量的自定义变量。在这种情况下，在创建新文件之前，系统将提示您一个对话框，您可以在其中为所有自定义变量定义特定值。
+                    使用#parse指令，您可以在“包含”选项卡中包含模板，方法是将所需模板的全名指定为引号中的参数。例如<br>
                     <b>#parse("File Header.java")</b>
-                </font></td>
+                </td>
             </tr>
         </table>
         <table width="100%" border="0" cellpadding="5" cellspacing="0" style="border-collapse: collapse">
@@ -85,6 +84,28 @@
                 <td valign="top"><nobr><font face="verdana" size="-2"><b>${PROJECT_NAME}</b></font></nobr></td>
                 <td width="10">&nbsp;</td>
                 <td width="100%" valign="top"><font face="verdana" size="-1">the name of the current project</font></td>
+            </tr>
+            <tr>
+                <td valign="top"><nobr><font face="verdana" size="-2"><b>${upperName}</b></font></nobr></td>
+                <td width="10">&nbsp;</td>
+                <td width="100%" valign="top"><font face="verdana" size="-1">首字母自动转大写</font></td>
+            </tr>
+            <tr>
+                <td valign="top"><nobr><font face="verdana" size="-2"><b>${lowerName}</b></font></nobr></td>
+                <td width="10">&nbsp;</td>
+                <td width="100%" valign="top"><font face="verdana" size="-1">首字母自动转小写</font></td>
+            </tr>
+            <tr>
+                <td valign="top"><nobr><font face="verdana" size="-2"><b>${description}</b></font></nobr></td>
+                <td width="10">&nbsp;</td>
+                <td width="100%" valign="top"><font face="verdana" size="-1">注释</font></td>
+            </tr>
+            <tr>
+                <td valign="top"><nobr><font face="verdana" size="-2"><b>${documentsBeans}</b></font></nobr></td>
+                <td width="10">&nbsp;</td>
+                <td width="100%" valign="top"><font face="verdana" size="-1">
+                    <a href="https://www.jianguoyun.com/p/DZvJPp8Qhq3dBxjex-kB">ArrayList&lt;DocumentsBean&gt;对象</a>
+                </font></td>
             </tr>
         </table>
     </body>

@@ -18,7 +18,7 @@ public class FormattingUI extends JDialog {
     private JPanel contentPane;
     private JButton buttonOK;
     private JButton buttonCancel;
-    private JTextArea tableContent;
+    private JEditorPane tableContent;
     private JTextField descriptionContent;
     private JTextField tableNameContent;
     private JLabel tableNameLabel;
@@ -84,7 +84,7 @@ public class FormattingUI extends JDialog {
         this.contentPane = new JPanel();
         this.buttonOK = new JButton();
         this.buttonCancel = new JButton();
-        this.tableContent = new JTextArea();
+        this.tableContent = new JEditorPane();
         this.descriptionContent = new JTextField();
         this.tableNameContent = new JTextField();
         this.tableNameLabel = new JLabel();

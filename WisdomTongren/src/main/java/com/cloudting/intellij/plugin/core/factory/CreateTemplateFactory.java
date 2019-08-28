@@ -2,6 +2,7 @@ package com.cloudting.intellij.plugin.core.factory;
 
 import com.cloudting.intellij.plugin.bean.Ma;
 import com.cloudting.intellij.plugin.core.config.Bundle;
+import com.cloudting.intellij.plugin.core.service.ISettingJspDirectoryService;
 import com.cloudting.intellij.plugin.core.utils.fileTemplates.TemplatesUtils;
 import com.intellij.ide.fileTemplates.FileTemplate;
 import com.intellij.ide.fileTemplates.FileTemplateManager;
@@ -71,9 +72,9 @@ public class CreateTemplateFactory {
 
         String ext = Bundle.message("fileTemplates.fileType.jsp.ext");
         String fileName = name + "_" + templateName + "." + ext;
-
-
-        String path = String.format("%s/%s", dir.getVirtualFile().getPath(), name);
+        ISettingJspDirectoryService service = ISettingJspDirectoryService.getInstance();
+        final String jspPath = service.getTextWebDir();
+        String path = String.format("%s/%s", jspPath, name);
         dir = DirectoryUtil.mkdirs(PsiManager.getInstance(project), path);
         PsiElement element;
         try {
