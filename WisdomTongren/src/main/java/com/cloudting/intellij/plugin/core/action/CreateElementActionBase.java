@@ -91,7 +91,8 @@ public abstract class CreateElementActionBase  extends CreateInDirectoryActionBa
 
         @Override
         public boolean checkInput(final String inputString) {
-            return true;
+            myCreatedElements = tryCreate(inputString);
+            return myCreatedElements.length > 0;
         }
 
         @Override
@@ -111,8 +112,7 @@ public abstract class CreateElementActionBase  extends CreateInDirectoryActionBa
 
         @Override
         public boolean canClose(final String inputString) {
-            myCreatedElements = tryCreate(inputString);
-            return myCreatedElements.length > 0;
+            return true;
         }
 
         public final PsiElement[] getCreatedElements() {

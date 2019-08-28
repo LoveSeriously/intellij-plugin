@@ -1,7 +1,10 @@
 package com.cloudting.intellij.plugin.core.action;
 
+import com.cloudting.intellij.plugin.bean.DocumentsBean;
+import com.cloudting.intellij.plugin.bean.Ma;
 import com.cloudting.intellij.plugin.core.config.Bundle;
 import com.cloudting.intellij.plugin.core.config.Icons;
+import com.cloudting.intellij.plugin.utils.ResolverUtils;
 import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiDirectory;
 import com.intellij.psi.PsiElement;
@@ -30,12 +33,23 @@ public class NewFileAction extends NewFileActionsBase {
         return Bundle.message("newfile.menu.action.text");
     }
 
-
     @Override
-    protected PsiElement[] doCreate(String name, PsiDirectory directory) {
+    protected PsiElement[] doCreate(String str, PsiDirectory directory) {
 
-        PsiFile[] jsp = createJsp(directory, name);
-        PsiClass[] psiClass = createJava(directory, name);
+        String[] strings = str.split("\\|");
+        String name = strings[0];
+        String description = strings[1];
+        String tableContent = strings[2];
+
+        List<DocumentsBean> documentsBeans = ResolverUtils.getDocumentsBeans(tableContent);
+
+        Ma ma = new Ma();
+        ma.setName(name);
+        ma.setDescription(description);
+        ma.setDocumentsBeans(documentsBeans);
+
+        PsiFile[] jsp = createJsp(directory, ma);
+        PsiClass[] psiClass = createJava(directory, ma);
         List<PsiElement> array = new ArrayList<>();
         for (PsiFile psiFile : jsp) {
             array.add(psiFile);

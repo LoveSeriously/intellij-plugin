@@ -68,20 +68,15 @@ public class FormattingUI extends JDialog {
     }
 
     private void onOK() {
-//       tableFortmatingAction.setTableText(tableContent.getText());
         String classNameText = className.getText();
+        String descriptionContentText = descriptionContent.getText();
         String tableContentText = tableContent.getText();
-        myValidator.canClose(classNameText);
+        myValidator.checkInput(String.format("%s|%s|%s", classNameText, descriptionContentText, tableContentText));
         dispose();
     }
 
     private void onCancel() {
-        // add your code here if necessary
         dispose();
-    }
-
-    public static void main(String[] args) {
-//        FormattingUI dialog = new FormattingUI();
     }
 
     private void createUIComponents() {
@@ -96,7 +91,6 @@ public class FormattingUI extends JDialog {
         this.descriptionLabel = new JLabel();
         this.classNameLabel = new JLabel();
         this.className = new JTextField();
-
     }
 
     /**
