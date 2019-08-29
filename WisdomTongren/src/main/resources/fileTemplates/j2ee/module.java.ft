@@ -16,42 +16,42 @@ import javax.persistence.Table;
 @Table(name = "${tableName}")
 public class ${upperName} extends BaseModule{
 ## field
-#foreach($documentsBean in ${documentsBeans})
-private $documentsBean.type $documentsBean.field;                  //  #if($documentsBean.name)$documentsBean.name#end#**#        #if($documentsBean.remark)$documentsBean.remark#end#**#
+#foreach($d in ${documentsBeans})
+private $d.type $d.field;                  //  #if($d.name)$d.name#end#**#        #if($d.remark)$d.remark#end#**#
 #end
 ## getter
-#foreach($documentsBean in ${documentsBeans})
+#foreach($d in ${ds})
 ## 类型
-    #set($TYPE = $documentsBean.type)
+    #set($TYPE = $d.type)
 ## 长度
-    #set($LENGTH = $documentsBean.length)
+    #set($LENGTH = $d.length)
 ## 首字母大写
-    #set ($uName = $sheetExplain.field.substring(0, 1).toUpperCase() + $sheetExplain.field.substring(1))
+    #set ($uName = $d.field.substring(0, 1).toUpperCase() + $d.field.substring(1))
     #if(${TYPE} == "Date")#**#
     @DateTimeFormat(pattern = "yyyy-MM-dd")#**#
     public ${TYPE} get$uName(){#**#
-            return this.$documentsBean.field;
+            return this.$d.field;
     }
     #elseif(${TYPE} == "byte[]")#**#
     @Lob
     @Basic(fetch = FetchType.LAZY)
     @Column(columnDefinition = "BLOB", nullable = true)
     public ${TYPE} get$uName(){#**#
-            return this.$documentsBean.field;
+            return this.$d.field;
     }
     #elseif(${TYPE} == "Double" && ${LENGTH} == '默认')#**#
     public ${TYPE} get$uName(){#**#
-            return this.$documentsBean.field;
+            return this.$d.field;
     }
     #else#**#
     @Column(length = ${LENGTH})
     public ${TYPE} get$uName(){#**#
-            return this.$documentsBean.field;
+            return this.$d.field;
     }
     #end#**#
 ## sertter
-    public ${documentsBean.type} set${uName}(${documentsBean.type} ${documentsBean.field}) {
-        return this.${documentsBean.field} = ${documentsBean.field};
+    public ${d.type} set${uName}(${d.type} ${d.field}) {
+        return this.${d.field} = ${d.field};
     }
 #end
 }
