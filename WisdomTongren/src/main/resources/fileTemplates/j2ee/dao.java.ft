@@ -3,7 +3,7 @@
 import com.cloudting.urms.common.base.dao.IBaseDao;
 
 /**
- * $Description Dao接口.
+ * ${description} Dao接口.
  * @author: lw
  * @date: ${YEAR}-${MONTH}-${DAY}
  */

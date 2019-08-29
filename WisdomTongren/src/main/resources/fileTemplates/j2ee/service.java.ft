@@ -5,7 +5,7 @@ import com.cloudting.urms.common.utils.helper.Pager;
 import java.util.List
 
 /**
- * $Description Service接口.
+ * ${description} Service接口.
  * @author: lw
  * @date: ${YEAR}-${MONTH}-${DAY}
  */

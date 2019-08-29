@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
- * $Description Controller层.
+ * ${description} Controller层.
  * @author: lw
  * @date: ${YEAR}-${MONTH}-${DAY}
  */

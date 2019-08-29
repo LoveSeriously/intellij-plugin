@@ -29,28 +29,12 @@
                                 <col width="150"><col>
                             </colgroup>
                             <tbody>
-                              
+                            #foreach($S in ${documentsBeans})
                             <tr>
-                                <td class="table_label">例子名称</td>
-                                <td>${testDemoVo.demoName}</td>
+                                <td class="table_label">$S.name</td>
+                                <td>{enterpriseVo.$S.field}</td>
                             </tr>
-                            <tr>
-                                <td class="table_label">价值</td>
-                                <td>${testDemoVo.demoValuation}</td>
-                            </tr>
-                            <tr>
-                                <td class="table_label">排序</td>
-                                <td>${testDemoVo.demoOrder}</td>
-                            </tr>
-                            <tr>
-                                <td class="table_label">使用时间</td>
-                                <td><fmt:formatDate value="${testDemoVo.demoUseTime}" pattern="yyyy-MM-dd"/></td>
-                            </tr>
-                            <tr>
-                                <td class="table_label">是否公开</td>
-                                <td></td>
-                            </tr>
-                              
+                            #end
                             </tbody>
                         </table>
                     </div>
