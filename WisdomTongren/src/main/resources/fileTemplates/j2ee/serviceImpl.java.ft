@@ -22,7 +22,20 @@ public class ${upperName}ServiceImpl extends BaseServiceImpl implements I${upper
     @Override
     public Pager queryEntityList(Integer page, Integer limit, ${upperName}Vo ${lowerName}Vo) {
         List<Criterion> criterionList = new ArrayList<>();
-
+        #foreach($s in $sheetExplainList)#**#
+            #set ($upperName = $s.field.substring(0, 1).toUpperCase() + $s.field.substring(1))
+            #if($s.type=='String')#**#
+                // $s.field        #if($s.name)$s.name#end#**#
+                if(StringUtils.isNotBlank(xxVo.get${upperName}())){
+                    criterionList.add(Restrictions.like("$s.field", xxVo.get${upperName}(), MatchMode.ANYWHERE));
+                }
+            #else#**#
+                // $s.field        #if($s.name)$s.name#end#**#
+                if(null != xxVo.get${upperName}()){#**#
+                    criterionList.add(Restrictions.eq("${s.field}", xxVo.get${upperName}()));
+                }
+            #end
+        #end
         return this.${lowerName}DaoImpl.queryEntityList(page, limit, criterionList, Order.desc("createTime"), ${upperName}.class);
     }
 

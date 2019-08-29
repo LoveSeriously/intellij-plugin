@@ -33,7 +33,6 @@ public class TemplatesUtils {
         TEMPLATE_VARIABLE.put("description", description);// 注释
 
         TEMPLATE_VARIABLE.put("documentsBeans", documentsBeans);
-        TEMPLATE_VARIABLE.put("documentsBeans", documentsBeans);
 
         return TEMPLATE_VARIABLE;
     }

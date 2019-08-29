@@ -16,6 +16,7 @@ import com.intellij.psi.*;
 import com.intellij.util.IncorrectOperationException;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Enumeration;
 import java.util.Map;
 import java.util.Properties;
 
@@ -68,7 +69,7 @@ public class CreateTemplateFactory {
         Properties defaultProperties = FileTemplateManager.getInstance(project).getDefaultProperties();
         Properties properties = new Properties(defaultProperties);
         properties.setProperty(FileTemplate.ATTRIBUTE_NAME, name);
-        FileTemplateUtil.putAll(additionalProperties, properties);
+        putAll(additionalProperties, properties);
 
         String ext = Bundle.message("fileTemplates.fileType.jsp.ext");
         String fileName = name + "_" + templateName + "." + ext;
@@ -103,7 +104,8 @@ public class CreateTemplateFactory {
         Properties defaultProperties = FileTemplateManager.getInstance(project).getDefaultProperties();
         Properties properties = new Properties(defaultProperties);
         properties.setProperty(FileTemplate.ATTRIBUTE_NAME, name);
-        FileTemplateUtil.putAll(additionalProperties, properties);
+        FileTemplateUtil.fillDefaultProperties(properties, dir);
+        putAll(additionalProperties, properties);
 
         String ext = Bundle.message("fileTemplates.fileType.java.ext");
         String fileName = name + "." + ext;
@@ -119,7 +121,7 @@ public class CreateTemplateFactory {
 
         PsiElement element;
         try {
-            element = FileTemplateUtil.createFromTemplate(template, fileName, additionalProperties, dir, null);
+            element = FileTemplateUtil.createFromTemplate(template, fileName, additionalProperties, dir, ClassLoader.getSystemClassLoader());
         }
         catch (IncorrectOperationException e) {
             throw e;
@@ -142,5 +144,16 @@ public class CreateTemplateFactory {
 
     private static String getIncorrectTemplateMessage(String templateName, Project project) {
         return PsiBundle.message("psi.error.incorrect.class.template.message", FileTemplateManager.getInstance(project).internalTemplateToSubject(templateName), templateName);
+    }
+
+
+    private static void putAll(@NotNull Map<String, Object> props, @NotNull Properties p) {
+        for (Enumeration<?> e = p.propertyNames(); e.hasMoreElements(); ) {
+            String s = (String)e.nextElement();
+            if (props.containsKey(s)) {
+                props.remove(s);
+            }
+            props.put(s, p.getProperty(s));
+        }
     }
 }

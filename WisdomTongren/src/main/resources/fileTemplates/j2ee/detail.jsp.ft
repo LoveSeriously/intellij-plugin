@@ -32,7 +32,7 @@
                             #foreach($S in ${documentsBeans})
                             <tr>
                                 <td class="table_label">$S.name</td>
-                                <td>{enterpriseVo.$S.field}</td>
+                                <td>$${lowerName}Vo.$S.field}</td>
                             </tr>
                             #end
                             </tbody>
