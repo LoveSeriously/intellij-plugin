@@ -38,13 +38,15 @@ public class NewFileAction extends NewFileActionsBase {
 
         String[] strings = str.split("\\|");
         String name = strings[0];
-        String description = strings[1];
-        String tableContent = strings[2];
+        String tableName = strings[1];
+        String description = strings[2];
+        String tableContent = strings[3];
 
         List<DocumentsBean> documentsBeans = ResolverUtils.getDocumentsBeans(tableContent);
 
         Ma ma = new Ma();
         ma.setName(name);
+        ma.setTableName(tableName);
         ma.setDescription(description);
         ma.setDocumentsBeans(documentsBeans);
 

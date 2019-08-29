@@ -1,14 +1,8 @@
 #if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
-## 首字母都自动转大写
-#set ($upperName = $NAME.substring(0, 1).toUpperCase() + $NAME.substring(1))
-## 首字母都自动转小写
-#set ($lowerName = $NAME.substring(0, 1).toLowerCase() + $NAME.substring(1))
 
-import com.common.base.service.IBaseService;
-import com.common.utils.helper.Pager;
-
-import java.util.List;
-
+import com.cloudting.urms.common.base.service.IBaseService;
+import com.cloudting.urms.common.utils.helper.Pager;
+import java.util.List
 
 /**
  * $Description Service接口.

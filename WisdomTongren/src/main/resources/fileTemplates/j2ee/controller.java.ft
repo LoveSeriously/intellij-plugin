@@ -1,11 +1,7 @@
 #if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
-## 首字母都自动转大写
-#set ($upperName = $NAME.substring(0, 1).toUpperCase() + $NAME.substring(1))
-## 首字母都自动转小写
-#set ($lowerName = $NAME.substring(0, 1).toLowerCase() + $NAME.substring(1))
 
-import com.common.base.controller.BaseController;
-import com.common.utils.helper.Pager;
+import com.cloudting.urms.common.base.controller.BaseController;
+import com.cloudting.urms.common.utils.helper.Pager;
 import com.google.gson.JsonObject;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -15,7 +11,6 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;

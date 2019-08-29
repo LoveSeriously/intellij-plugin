@@ -13,7 +13,7 @@ repositories {
 }
 
 dependencies {
-    compile group: 'commons-io', name: 'commons-io', version: '2.6'
+    
 }
 
 // See https://github.com/JetBrains/gradle-intellij-plugin/

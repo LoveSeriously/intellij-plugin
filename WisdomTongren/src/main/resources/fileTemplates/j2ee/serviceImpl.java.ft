@@ -1,25 +1,9 @@
 #if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
-## 首字母都自动转大写
-#set ($upperName = $NAME.substring(0, 1).toUpperCase() + $NAME.substring(1))
-## 首字母都自动转小写
-#set ($lowerName = $NAME.substring(0, 1).toLowerCase() + $NAME.substring(1))
 
-import com.common.base.service.impl.BaseServiceImpl;
-import com.cloudting.common.utils.chartReport.service.IChartReportService;
-import com.common.utils.helper.Pager;
-import org.apache.commons.lang3.StringUtils;
-import org.hibernate.criterion.Criterion;
-import org.hibernate.criterion.MatchMode;
-import org.hibernate.criterion.Order;
-import org.hibernate.criterion.Restrictions;
-import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import com.cloudting.urms.common.base.service.impl.BaseServiceImpl;
+import com.cloudting.urms.common.chartReport.service.IChartReportService;
+import com.cloudting.urms.common.utils.Common;
+import com.cloudting.urms.common.utils.helper.Pager;
 
 /**
  * $Description Service接口实现类.

@@ -8,6 +8,7 @@ import java.util.List;
  */
 public class Ma {
     private String name;
+    private String tableName;
     private String description;
     private List<DocumentsBean> documentsBeans;
 
@@ -17,6 +18,14 @@ public class Ma {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getTableName() {
+        return tableName;
+    }
+
+    public void setTableName(String tableName) {
+        this.tableName = tableName;
     }
 
     public String getDescription() {

@@ -1,12 +1,8 @@
 #if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
-## 首字母都自动转大写
-#set ($upperName = $NAME.substring(0, 1).toUpperCase() + $NAME.substring(1))
-## 首字母都自动转小写
-#set ($lowerName = $NAME.substring(0, 1).toLowerCase() + $NAME.substring(1))
 
-import com.common.base.dao.impl.BaseDaoImpl;
-import org.springframework.stereotype.Repository;
-
+import com.cloudting.urms.common.base.dao.impl.BaseDaoImpl;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
 /**
  * $Description Dao接口实现类.

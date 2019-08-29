@@ -20,6 +20,7 @@ public class TemplatesUtils {
 
     public static Map<String, Object> getVariable(@NotNull Ma ma) {
         final String name = ma.getName();
+        final String tableName = ma.getTableName();
         String description = "";
         if (null != ma.getDescription()) {
             description = ma.getDescription();
@@ -28,6 +29,7 @@ public class TemplatesUtils {
 
         TEMPLATE_VARIABLE.put("upperName", name.substring(0, 1).toUpperCase() + name.substring(1));// 首字母自动转大写
         TEMPLATE_VARIABLE.put("lowerName", name.substring(0, 1).toLowerCase() + name.substring(1));// 首字母自动转小写
+        TEMPLATE_VARIABLE.put("tableName", tableName);// 表名
         TEMPLATE_VARIABLE.put("description", description);// 注释
 
 

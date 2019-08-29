@@ -1,6 +1,6 @@
 #if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
 
-import com.common.base.dao.IBaseDao;
+import com.cloudting.urms.common.base.dao.IBaseDao;
 
 /**
  * $Description Dao接口.

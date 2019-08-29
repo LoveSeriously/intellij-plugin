@@ -1,25 +1,59 @@
 #if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
 
-import com.cloudting.common.base.module.BaseModule;
-
+import com.cloudting.urms.common.base.module.BaseModule;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-## 文档注释
 /**
-    #if ($Description != "") * $Description
-    #end * @author: lw
- * @date: ${YEAR}-${MONTH}-${DAY}
+ * ${description}
+ * @author lw
+ * @date ${YEAR}-${MONTH}-${DAY}
  */
 
-## 首字母都自动转大写
-#set ($upperName = $NAME.substring(0, 1).toUpperCase() + $NAME.substring(1))
-## 首字母都自动转小写
-#set ($lowerName = $NAME.substring(0, 1).toLowerCase() + $NAME.substring(1))
 @Entity
-@org.hibernate.annotations.Table(comment = "$Description", appliesTo = "$TableName")
-@Table(name = "$TableName")
-public class ${upperName} extends BaseModule {
+@org.hibernate.annotations.Table(comment = "${description}", appliesTo = "${tableName}")
+@Table(name = "${tableName}")
+public class ${upperName} extends BaseModule{
+## field
+#foreach($documentsBean in ${documentsBeans})
+private $documentsBean.type $documentsBean.field;                  //  #if($documentsBean.name)$documentsBean.name#end#**#        #if($documentsBean.remark)$documentsBean.remark#end#**#
+#end
+## getter
+#foreach($documentsBean in ${documentsBeans})
+## 类型
+    #set($TYPE = $documentsBean.type)
+## 长度
+    #set($LENGTH = $documentsBean.length)
+## 首字母大写
+    #if(${TYPE} == "Date")#**#
+    @DateTimeFormat(pattern = "yyyy-MM-dd")#**#
+    public ${TYPE} get$upperName(){#**#
+            return this.$documentsBean.field;
+            }
+    #elseif(${TYPE} == "byte[]")#**#
+    @Lob
+    @Basic(fetch = FetchType.LAZY)
+    @Column(columnDefinition = "BLOB", nullable = true)
+    public ${TYPE} get$upperName(){#**#
+            return this.$documentsBean.field;
+            }
+    #elseif(${TYPE} == "Double" && ${LENGTH} == '默认')#**#
+    public ${TYPE} get$upperName(){#**#
+            return this.$documentsBean.field;
+            }
+    #else#**#
+    @Column(length = ${LENGTH})
+    public ${TYPE} get$upperName(){#**#
+            return this.$documentsBean.field;
+            }
+    #end#**#
+#end
+## sertter
+#foreach($documentsBean in ${documentsBeans})
 
+public ${documentsBean.type} set${upperName}(${documentsBean.type} ${documentsBean.field}) {
+        return this.${documentsBean.field} = ${documentsBean.field};
+        }
+#end
         }
