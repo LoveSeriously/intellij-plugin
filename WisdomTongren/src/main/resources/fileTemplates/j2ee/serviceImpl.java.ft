@@ -2,8 +2,23 @@
 
 import com.cloudting.urms.common.base.service.impl.BaseServiceImpl;
 import com.cloudting.urms.common.chartReport.service.IChartReportService;
-import com.cloudting.urms.common.utils.Common;
 import com.cloudting.urms.common.utils.helper.Pager;
+import com.cloudting.urms.common.base.service.impl.BaseServiceImpl;
+import com.cloudting.urms.common.chartReport.service.IChartReportService;
+import com.cloudting.urms.common.utils.helper.Pager;
+import org.apache.commons.lang3.StringUtils;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.MatchMode;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * ${description} Service接口实现类.
@@ -23,14 +38,15 @@ public class ${upperName}ServiceImpl extends BaseServiceImpl implements I${upper
     public Pager queryEntityList(Integer page, Integer limit, ${upperName}Vo ${lowerName}Vo) {
         List<Criterion> criterionList = new ArrayList<>();
         #foreach($d in $documentsBeans)#**#
-            #set ($upperName = $d.field.substring(0, 1).toUpperCase() + $d.field.substring(1))
+            #set ($uName = $d.field.substring(0, 1).toUpperCase() + $d.field.substring(1))
+            #set ($lName = $d.field.substring(0, 1).toLowerCase() + $d.field.substring(1))
             #if($d.type=='String')#**#
-                if(StringUtils.isNotBlank(${lowerName}Vo.get${upperName}())){ // $d.field #if($d.name)$s.name#end#**#
-                    criterionList.add(Restrictions.like("$d.field", xxVo.get${upperName}(), MatchMode.ANYWHERE));
+                if(StringUtils.isNotBlank(${lName}Vo.get${uName}())){ // $d.field #if($d.name)$s.name#end#**#
+                    criterionList.add(Restrictions.like("$d.field", ${lName}Vo.get${uName}(), MatchMode.ANYWHERE));
                 }
             #else#**#
-                if(null != ${lowerName}Vo.get${upperName}()){#**#// $d.field #if($d.name)$d.name#end#**#
-                    criterionList.add(Restrictions.eq("$d.field", xxVo.get${upperName}()));
+                if(null != ${lName}Vo.get${uName}()){#**#// $d.field #if($d.name)$d.name#end#**#
+                    criterionList.add(Restrictions.eq("$d.field", ${lName}Vo.get${uName}()));
                 }
             #end
         #end

@@ -23,7 +23,7 @@ import java.util.List;
  */
 
 @Controller
-@RequestMapping("/${lowerName}")
+@RequestMapping("/subsystem/${lowerName}")
 public class ${upperName}Controller extends BaseController {
 
     @Autowired

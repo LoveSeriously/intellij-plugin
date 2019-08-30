@@ -37,10 +37,10 @@ public class NewFileAction extends NewFileActionsBase {
     protected PsiElement[] doCreate(String str, PsiDirectory directory) {
 
         String[] strings = str.split("\\|");
-        String name = strings[0];
-        String tableName = strings[1];
-        String description = strings[2];
-        String tableContent = strings[3];
+        String name = strings[0].trim();
+        String tableName = strings[1].trim();
+        String description = strings[2].trim();
+        String tableContent = strings[3].trim();
 
         List<DocumentsBean> documentsBeans = ResolverUtils.getDocumentsBeans(tableContent);
 

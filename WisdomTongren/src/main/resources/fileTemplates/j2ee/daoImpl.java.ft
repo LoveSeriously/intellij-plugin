@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
  * @date:  ${YEAR}-${MONTH}-${DAY}
  */
 
-@Repository("${lowerName}DaoImpl")
+@Component("${lowerName}DaoImpl")
+@Scope("prototype")
 public class ${upperName}DaoImpl extends BaseDaoImpl implements I${upperName}Dao {
 }

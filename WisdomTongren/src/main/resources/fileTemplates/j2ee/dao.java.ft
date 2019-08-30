@@ -8,5 +8,5 @@ import com.cloudting.urms.common.base.dao.IBaseDao;
  * @date: ${YEAR}-${MONTH}-${DAY}
  */
 
-public interface I${UPPERNAME}Dao extends IBaseDao {
+public interface I${upperName}Dao extends IBaseDao {
 }

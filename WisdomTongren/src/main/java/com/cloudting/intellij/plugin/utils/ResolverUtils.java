@@ -29,24 +29,24 @@ public class ResolverUtils {
             int len = split.length;
             // 名字
             if (len >= 1) {
-                documentsBean.setName(split[0]);
+                documentsBean.setName(split[0].trim());
             }
             // 字段
             if (len >= 2) {
-                documentsBean.setField(split[1]);
+                documentsBean.setField(split[1].trim());
             }
             // 类型
             if (len >= 3) {
                 List<Map<String, String>> dateType = getDateType(Bundle.message("file.path.dateType"));
                 for (Map<String, String> map : dateType) {
                     if (map.containsKey(split[2])) {
-                        documentsBean.setType(map.get(split[2]));
+                        documentsBean.setType(map.get(split[2].trim()));
                     }
                 }
             }
             // 长度
             if (len >= 4) {
-                documentsBean.setLength(split[3]);
+                documentsBean.setLength(split[3].trim());
             }
             // 备注
             if (len >= 5) {

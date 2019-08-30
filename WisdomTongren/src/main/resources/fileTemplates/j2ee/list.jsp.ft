@@ -7,10 +7,10 @@
 <head>
     <meta charset="utf-8">
     <title>${description}</title>
-    <script src="/common/com/js/ct_layui.js"></script>
-    <script type="text/javascript">
+     <script type="text/javascript">
         var currentPage = "list";   //声明当前页面是列表页面
     </script>
+    <script src="/common/com/js/ct_layui.js"></script>
 </head>
 <body>
 <div class="layui-fluid">
@@ -33,14 +33,14 @@
                 <%-- 查询搜索表单 --%>
                 <form class="layui-form layui-card-header layuiadmin-card-header-auto" id="ct_baseForm_list">
                     <div class="layui-form-item">
-                        #foreach($s in ${documentsBeans})
+                        #foreach($s in ${documentsBeans})##
                         <div class="layui-inline">
                             <label class="layui-form-label">$s.name</label>
                             <div class="layui-input-block">
                                 <input type="text" name="$s.field" autocomplete="off" class="layui-input">
                             </div>
                         </div>
-                        #end
+                        #end##
                         <div class="layui-inline">
                             <button class="layui-btn layuiadmin-btn-admin" lay-submit lay-filter="ct_baseForm_search">
                                 <i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>
@@ -75,7 +75,7 @@
 </div>
 
 <script type="text/javascript">
-    var urlStr = "/subsystem/${lowerName}";
+    var urlStr = "/subsystem/${lowerName}/${lowerName}";
 
     layui.use('laydate', function() {
         var laydate = layui.laydate;
@@ -102,9 +102,9 @@
             cols: [[
                 {type: 'checkbox', fixed: 'left'},
                 {title: "序号", type: 'numbers', fixed: 'left', width: 50},
-                #foreach($s in ${documentsBeans})
+                #foreach($s in ${documentsBeans})##
                 {title: "$s.name", field: "$s.field", align: "center"},
-                #end
+                #end##
                 {title: "操作", fixed: 'right', align: 'center', unresize: 'true', toolbar: ctRowToolBar, width: 140}
             ]]
         });

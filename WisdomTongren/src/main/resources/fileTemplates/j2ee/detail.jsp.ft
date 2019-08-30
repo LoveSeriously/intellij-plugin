@@ -29,12 +29,12 @@
                                 <col width="150"><col>
                             </colgroup>
                             <tbody>
-                            #foreach($S in ${documentsBeans})
-                            <tr>
-                                <td class="table_label">$S.name</td>
-                                <td>$${lowerName}Vo.$S.field}</td>
-                            </tr>
-                            #end
+                                #foreach($S in ${documentsBeans})##
+                                <tr>
+                                    <td class="table_label">$S.name</td>
+                                    <td>${${lowerName}Vo.$S.field}</td>
+                                </tr>
+                                #end##
                             </tbody>
                         </table>
                     </div>

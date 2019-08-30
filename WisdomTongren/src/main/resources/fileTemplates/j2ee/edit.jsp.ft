@@ -30,7 +30,7 @@
                     <div class="layui-card-header"><strong>基础信息</strong><span style="color: #A5A5A5">（加 * 内容属于必填项）</span></div>
                     <div class="layui-card-body">
                         <div class="layui-row">
-                            #foreach($S in ${documentsBeans})
+                            #foreach($S in ${documentsBeans})##
                             <div class="layui-col-xs6">
                                 <div class="layui-form-item">
                                     <label class="layui-form-label">$S.name</label>
@@ -39,7 +39,7 @@
                                     </div>
                                 </div>
                             </div>
-                            #end
+                            #end##
                         </div>
                     </div>
 
