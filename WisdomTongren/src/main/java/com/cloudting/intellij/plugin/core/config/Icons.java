@@ -9,5 +9,5 @@ import javax.swing.*;
  * @date 2019-08-27
  */
 public class Icons {
-    public static final Icon PLUGIN = IconLoader.getIcon("images/icons/pluginIcon.png");
+    public static final Icon PLUGIN = IconLoader.getIcon("/images/icons/pluginIcon.png");
 }
