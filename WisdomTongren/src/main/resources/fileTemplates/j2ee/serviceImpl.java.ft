@@ -36,11 +36,11 @@ public class ${upperName}ServiceImpl extends BaseServiceImpl implements I${upper
         #foreach($d in $documentsBeans)
             #set ($uName = $d.field.substring(0, 1).toUpperCase() + $d.field.substring(1))
             #if($d.type=='String')
-                if(StringUtils.isNotBlank(${lowerName}Vo.get${uName}())){ // $d.field #if($d.name)$d.name#end
+                if(StringUtils.isNotBlank(${lowerName}Vo.get${uName}())){ // $d.field #if($d.name)$d.name#end##
                     criterionList.add(Restrictions.like("$d.field", ${lowerName}Vo.get${uName}(), MatchMode.ANYWHERE));
                 }
             #else
-                if(null != ${lowerName}Vo.get${uName}()){// $d.field #if($d.name)$d.name#end
+                if(null != ${lowerName}Vo.get${uName}()){// $d.field #if($d.name)$d.name#end##
                     criterionList.add(Restrictions.eq("$d.field", ${lowerName}Vo.get${uName}()));
                 }
             #end
