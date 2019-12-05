@@ -1,6 +1,6 @@
 package com.cloudting.intellij.plugin.core.factory;
 
-import com.cloudting.intellij.plugin.bean.Ma;
+import com.cloudting.intellij.plugin.bean.FormatDocument;
 import com.cloudting.intellij.plugin.core.config.Bundle;
 import com.cloudting.intellij.plugin.core.service.ISettingJspDirectoryService;
 import com.cloudting.intellij.plugin.core.utils.fileTemplates.TemplatesUtils;
@@ -27,31 +27,31 @@ import java.util.Properties;
 public class CreateTemplateFactory {
     private static final Logger LOG = Logger.getInstance("#com.cloudting.intellij.plugin.core.factory.CreateTemplateFactory");
 
-    public static PsiClass[] createClass(@NotNull PsiDirectory dir,@NotNull Ma ma) {
-        return createClassFromTemplate(dir, ma);
+    public static PsiClass[] createClass(@NotNull PsiDirectory dir,@NotNull FormatDocument formatDocument) {
+        return createClassFromTemplate(dir, formatDocument);
     }
 
-    public static PsiFile[] createJsp(@NotNull PsiDirectory dir, @NotNull Ma ma) throws IncorrectOperationException {
-        return createJspFromTemplate(dir, ma);
+    public static PsiFile[] createJsp(@NotNull PsiDirectory dir, @NotNull FormatDocument formatDocument) throws IncorrectOperationException {
+        return createJspFromTemplate(dir, formatDocument);
     }
 
-    private static PsiFile[] createJspFromTemplate(@NotNull PsiDirectory dir,@NotNull Ma ma) throws IncorrectOperationException {
+    private static PsiFile[] createJspFromTemplate(@NotNull PsiDirectory dir,@NotNull FormatDocument formatDocument) throws IncorrectOperationException {
         String[] templateNames = TemplatesUtils.TEMPLATE_JSP_NAME;
         PsiFile[] psiFiles = new PsiFile[templateNames.length];
-        Map<String, Object> templateJspVariable = TemplatesUtils.getVariable(ma);
+        Map<String, Object> templateJspVariable = TemplatesUtils.getVariable(formatDocument);
         for (int i = 0; i < templateNames.length; i ++) {
-            PsiFile jsp = createJspFromTemplate(dir, ma.getName(), templateNames[i], false, templateJspVariable);
+            PsiFile jsp = createJspFromTemplate(dir, formatDocument.getName(), templateNames[i], false, templateJspVariable);
             psiFiles[i] = jsp;
         }
         return psiFiles;
     }
 
-    private static PsiClass[] createClassFromTemplate(@NotNull PsiDirectory dir, @NotNull Ma ma) {
+    private static PsiClass[] createClassFromTemplate(@NotNull PsiDirectory dir, @NotNull FormatDocument formatDocument) {
         String[] templateNames = TemplatesUtils.TEMPLATE_JAVA_NAME;
         PsiClass[] psiClasses = new PsiClass[templateNames.length];
-        Map<String, Object> templateJavaVariable = TemplatesUtils.getVariable(ma);
+        Map<String, Object> templateJavaVariable = TemplatesUtils.getVariable(formatDocument);
         for (int i = 0; i < templateNames.length; i ++) {
-            PsiClass psiClass = createClassFromTemplate(dir, ma.getName(), templateNames[i], false, templateJavaVariable);
+            PsiClass psiClass = createClassFromTemplate(dir, formatDocument.getName(), templateNames[i], false, templateJavaVariable);
             psiClasses[i] = psiClass;
         }
         return psiClasses;

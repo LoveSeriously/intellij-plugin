@@ -1,13 +1,7 @@
 #if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
 
-##实体Vo
-#set ($entityVo = ${NAME} + "Vo")
+#parse("File Header.java")
 
-/**
- * ${description}	Vo
- * @author lw
- * @date ${YEAR}-${MONTH}-${DAY}
- */
-public class ${entityVo} extends ${NAME} {
+public class ${upperName}Vo extends ${upperName} {
 
 }

@@ -18,11 +18,13 @@ dependencies {
 
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
-    version '2019.1.4'
-    sandboxDirectory 'C:\\Users\\lw\\.IntelliJIdea2019.1\\system\\plugins-sandbox'
+    version '2019.3'
+    plugins 'java'
+    sandboxDirectory 'C:\\Users\\lw\\.IntelliJIdea2019.3\\system\\plugins-sandbox'
 }
 patchPluginXml {
-    changeNotes """
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>"""
+    changeNotes
+    """
+      <b>1.0.0</b>:<br/>
+    """
 }

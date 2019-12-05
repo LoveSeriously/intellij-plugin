@@ -5,11 +5,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-/**
- * ${description}
- * @author lw
- * @date ${YEAR}-${MONTH}-${DAY}
- */
+#parse("File Header.java")
 
 @Entity
 @org.hibernate.annotations.Table(comment = "${description}", appliesTo = "${tableName}")
@@ -20,7 +16,7 @@ public class ${upperName} extends BaseModule{
 private $d.type $d.field;                  //  #if($d.name)$d.name#end#**#        #if($d.remark)$d.remark#end#**#
 #end
 ## getter
-#foreach($d in ${ds})
+#foreach($d in ${documentsBeans})
 ## 类型
     #set($TYPE = $d.type)
 ## 长度
@@ -50,8 +46,8 @@ private $d.type $d.field;                  //  #if($d.name)$d.name#end#**#      
     }
     #end#**#
 ## sertter
-    public ${d.type} set${uName}(${d.type} ${d.field}) {
-        return this.${d.field} = ${d.field};
+    public void set${uName}(${d.type} ${d.field}) {
+        this.${d.field} = ${d.field};
     }
 #end
 }

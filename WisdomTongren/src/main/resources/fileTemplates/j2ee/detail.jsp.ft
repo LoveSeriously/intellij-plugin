@@ -9,10 +9,10 @@
 <head>
     <meta charset="utf-8">
     <title>${description}</title>
-    <script src="/common/com/js/ct_layui.js"></script>
-    <script>
-        var currentPage = "detail";   //声明当前页面是详情页面	
+     <script>
+        var currentPage = "detail";   //声明当前页面是详情页面
     </script>
+    <script src="/common/com/js/ct_layui.js"></script>
 </head>
 <body>
     <div class="layui-fluid" style="margin-bottom: 20px;">
@@ -30,10 +30,22 @@
                             </colgroup>
                             <tbody>
                                 #foreach($S in ${documentsBeans})##
-                                <tr>
-                                    <td class="table_label">$S.name</td>
-                                    <td>${${lowerName}Vo.$S.field}</td>
-                                </tr>
+                                    #if($S.type == "Date")
+                                    <tr>
+                                        <td class="table_label">$S.name</td>
+                                        <td><fmt:formatDate value="${${lowerName}Vo.$S.field}" pattern="yyyy-MM-dd"/></td>
+                                    </tr>
+                                    #elseif($S.dictionary)
+                                    <tr>
+                                        <td class="table_label">$S.name</td>
+                                        <td>${ fns:getDictValue("$S.dictionary", ${lowerName}Vo.$S.field)}</td>
+                                    </tr>
+                                    #else
+                                    <tr>
+                                        <td class="table_label">$S.name</td>
+                                        <td>${${lowerName}Vo.$S.field}</td>
+                                    </tr>
+                                    #end
                                 #end##
                             </tbody>
                         </table>

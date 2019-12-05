@@ -1,11 +1,15 @@
 package com.cloudting.intellij.plugin.core.action;
 
+import com.cloudting.intellij.plugin.core.config.Bundle;
 import com.intellij.ide.IdeView;
 import com.intellij.ide.actions.CreateInDirectoryActionBase;
 import com.intellij.ide.actions.ElementCreator;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.LangDataKeys;
 import com.intellij.openapi.application.WriteActionAware;
+import com.intellij.openapi.progress.ProgressIndicator;
+import com.intellij.openapi.progress.ProgressManager;
+import com.intellij.openapi.progress.Task;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.InputValidator;
 import com.intellij.openapi.util.text.StringUtil;
@@ -57,11 +61,14 @@ public abstract class CreateElementActionBase  extends CreateInDirectoryActionBa
         final Project project = e.getProject();
         final PsiDirectory dir = view.getOrChooseDirectory();
         if (dir == null) return;
-        final PsiElement[] createdElements = invokeDialog(project, dir);
-
-//        for (PsiElement createdElement : createdElements) {
-//            view.selectElement(createdElement);
-//        }
+        ProgressManager.getInstance().run(new Task.Backgroundable(project, "Switching Env") {
+            @Override
+            public void run(@NotNull ProgressIndicator indicator) {
+                indicator.setText(Bundle.message("newfile.dialog.title"));
+                indicator.setIndeterminate(true);
+                invokeDialog(project, dir);
+            }
+        });
     }
 
     @Nullable

@@ -10,6 +10,8 @@ import java.io.InputStream;
 import java.util.*;
 
 /**
+ * 处理文档对应的字段。
+ *
  * @author lw
  * @date 2019-08-28
  */
@@ -20,7 +22,7 @@ public class ResolverUtils {
         String[] result = docStr.split("\n");
         int length = result.length;
         for (int i = 0; i < length; i++) {
-            // Go to a blank line
+            // Go to a blank line. 去除空白行
             if (result[i].trim().isEmpty()) {
                 continue;
             }
@@ -50,7 +52,14 @@ public class ResolverUtils {
             }
             // 备注
             if (len >= 5) {
-                documentsBean.setRemark(split[4]);
+                String remark = split[4];
+                documentsBean.setRemark(remark);
+                final int indexStart = remark.indexOf('(');
+                final int indexEnd = remark.indexOf(')');
+                if (indexStart != -1 && indexEnd != -1) {
+                    final String dict = remark.substring(indexStart + 1, indexEnd);
+                    documentsBean.setDictionary(dict);
+                }
             }
             list.add(documentsBean);
         }

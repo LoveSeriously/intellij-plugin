@@ -4,11 +4,7 @@ import com.cloudting.urms.common.base.dao.impl.BaseDaoImpl;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-/**
- * ${description} Dao接口实现类.
- * @author: lw
- * @date:  ${YEAR}-${MONTH}-${DAY}
- */
+#parse("File Header.java")
 
 @Component("${lowerName}DaoImpl")
 @Scope("prototype")

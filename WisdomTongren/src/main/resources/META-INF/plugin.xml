@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>com.cloudting.WisdomTongren</id>
     <name>cloudting</name>
-    <vendor email="1397739779@qq.com" url="http://www.cloudting.com">about</vendor>
+    <vendor email="WisdomTongren@cloudting.com" url="http://www.cloudting.com">cloudting</vendor>
 
     <description><![CDATA[
             <h3>S如下格式:</h3>

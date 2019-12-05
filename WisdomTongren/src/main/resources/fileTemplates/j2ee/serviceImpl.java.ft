@@ -20,11 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-/**
- * ${description} Service接口实现类.
- * @author: lw
- * @date: ${YEAR}-${MONTH}-${DAY}
- */
+#parse("File Header.java")
 
 @Service("${lowerName}ServiceImpl")
 public class ${upperName}ServiceImpl extends BaseServiceImpl implements I${upperName}Service {
@@ -37,16 +33,15 @@ public class ${upperName}ServiceImpl extends BaseServiceImpl implements I${upper
     @Override
     public Pager queryEntityList(Integer page, Integer limit, ${upperName}Vo ${lowerName}Vo) {
         List<Criterion> criterionList = new ArrayList<>();
-        #foreach($d in $documentsBeans)#**#
+        #foreach($d in $documentsBeans)
             #set ($uName = $d.field.substring(0, 1).toUpperCase() + $d.field.substring(1))
-            #set ($lName = $d.field.substring(0, 1).toLowerCase() + $d.field.substring(1))
-            #if($d.type=='String')#**#
-                if(StringUtils.isNotBlank(${lName}Vo.get${uName}())){ // $d.field #if($d.name)$s.name#end#**#
-                    criterionList.add(Restrictions.like("$d.field", ${lName}Vo.get${uName}(), MatchMode.ANYWHERE));
+            #if($d.type=='String')
+                if(StringUtils.isNotBlank(${lowerName}Vo.get${uName}())){ // $d.field #if($d.name)$d.name#end
+                    criterionList.add(Restrictions.like("$d.field", ${lowerName}Vo.get${uName}(), MatchMode.ANYWHERE));
                 }
-            #else#**#
-                if(null != ${lName}Vo.get${uName}()){#**#// $d.field #if($d.name)$d.name#end#**#
-                    criterionList.add(Restrictions.eq("$d.field", ${lName}Vo.get${uName}()));
+            #else
+                if(null != ${lowerName}Vo.get${uName}()){// $d.field #if($d.name)$d.name#end
+                    criterionList.add(Restrictions.eq("$d.field", ${lowerName}Vo.get${uName}()));
                 }
             #end
         #end
@@ -86,7 +81,7 @@ public class ${upperName}ServiceImpl extends BaseServiceImpl implements I${upper
         List<Object> list = this.baseDaoImpl.queryBySql(sql.toString());
 
         List<List> arrayList = new ArrayList<>();
-        List<Map<String, Object>> mapList0 = this.chartReportServiceImpl.queryDictKeysByDictCode2("enterprise_Size");
+        List<Map<String, Object>> mapList0 = this.chartReportServiceImpl.groupingStatisticsForList("enterprise_Size");
         Map<String, Object> map1 = mapList0.get(0);  // map1:(key:数量)
         Map<String, Object> map2 = mapList0.get(1);  // map2:(key:value)
 

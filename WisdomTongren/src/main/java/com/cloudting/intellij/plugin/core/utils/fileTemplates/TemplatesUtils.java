@@ -1,7 +1,8 @@
 package com.cloudting.intellij.plugin.core.utils.fileTemplates;
 
 import com.cloudting.intellij.plugin.bean.DocumentsBean;
-import com.cloudting.intellij.plugin.bean.Ma;
+import com.cloudting.intellij.plugin.bean.FormatDocument;
+import com.cloudting.intellij.plugin.core.service.ISettingJspDirectoryService;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
@@ -18,14 +19,14 @@ public class TemplatesUtils {
 
     public static Map<String, Object> TEMPLATE_VARIABLE = new HashMap<>();
 
-    public static Map<String, Object> getVariable(@NotNull Ma ma) {
-        final String name = ma.getName();
-        final String tableName = ma.getTableName();
+    public static Map<String, Object> getVariable(@NotNull FormatDocument formatDocument) {
+        final String name = formatDocument.getName();
+        final String tableName = formatDocument.getTableName();
         String description = "";
-        if (null != ma.getDescription()) {
-            description = ma.getDescription();
+        if (null != formatDocument.getDescription()) {
+            description = formatDocument.getDescription();
         }
-        final List<DocumentsBean> documentsBeans = ma.getDocumentsBeans();
+        final List<DocumentsBean> documentsBeans = formatDocument.getDocumentsBeans();
 
         TEMPLATE_VARIABLE.put("upperName", name.substring(0, 1).toUpperCase() + name.substring(1));// 首字母自动转大写
         TEMPLATE_VARIABLE.put("lowerName", name.substring(0, 1).toLowerCase() + name.substring(1));// 首字母自动转小写
@@ -33,6 +34,13 @@ public class TemplatesUtils {
         TEMPLATE_VARIABLE.put("description", description);// 注释
 
         TEMPLATE_VARIABLE.put("documentsBeans", documentsBeans);
+
+        ISettingJspDirectoryService service = ISettingJspDirectoryService.getInstance();
+        final String jspPootPath = service.getTextWebDir();
+        final int indexStart = jspPootPath.indexOf("WEB-INF") + 8;
+
+        final String jspPath = jspPootPath.substring(indexStart);
+        TEMPLATE_VARIABLE.put("jspPath", jspPath); // jsp路径
 
         return TEMPLATE_VARIABLE;
     }

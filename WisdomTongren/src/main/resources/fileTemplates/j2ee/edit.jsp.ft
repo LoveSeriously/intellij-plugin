@@ -10,10 +10,10 @@
 <head>
     <meta charset="utf-8">
     <title>${description}</title>
-    <script src="/common/com/js/ct_layui.js"></script>
     <script type="text/javascript">
         var currentPage = "edit";   //声明当前页面是编辑页面
     </script>
+    <script src="/common/com/js/ct_layui.js"></script>
 </head>
 <body>
 <div class="layui-fluid">
@@ -34,9 +34,38 @@
                             <div class="layui-col-xs6">
                                 <div class="layui-form-item">
                                     <label class="layui-form-label">$S.name</label>
-                                    <div class="layui-input-block">
-                                        <input type="text" class="layui-input" id="$S.field" name="$S.field" value="${${lowerName}Vo.$S.field}" lay-verify="" lay-verType="tips" autocomplete="off"/>
-                                    </div>
+                                    #if ($S.type == "Date")## 时间
+                                        <div class="layui-input-block">
+                                            <input type="text" class="layui-input" id="$S.field" name="$S.field" value="<fmt:formatDate value='${${lowerName}Vo.$S.field}' pattern="yyyy-MM-dd"/>" autocomplete="off"/>
+                                        </div>
+                                         <script type="text/javascript">
+                                            layui.use('laydate', function () {
+                                                    let laydate = layui.laydate;
+
+                                                    laydate.render({
+                                                        elem: '#$S.field',
+                                                        trigger: 'click'
+                                                    });
+                                            });
+                                         </script>
+                                    #elseif($S.dictionary) ## 字典
+                                     <div class="layui-input-block">
+                                            <opt:selectLayui dictKey="$S.dictionary" name="$S.field" value="${${lowerName}Vo.$S.field}" laySearch="true" isDefSelect="true"/>
+                                     </div>
+                                    #elseif($S.length le 300)## 文本域类型
+                                       <div class="layui-col-xs12">
+                                           <div class="layui-form-item">
+                                               <label class="layui-form-label">$S.name</label>
+                                               <div class="layui-input-block">
+                                                   <textarea class="layui-textarea" id="$S.field" name="$S.field" lay-verify="" lay-verType="tips" placeholder="">${${lowerName}Vo.$S.field}</textarea>
+                                               </div>
+                                           </div>
+                                       </div>
+                                    #else ##
+                                        <div class="layui-input-block">
+                                            <input type="text" class="layui-input" id="$S.field" name="$S.field" value="${${lowerName}Vo.$S.field}" lay-verify="" lay-verType="tips" autocomplete="off"/>
+                                        </div>
+                                    #end
                                 </div>
                             </div>
                             #end##
@@ -60,7 +89,7 @@
 </div>
 
 <script>
-    var urlStr = "/subsystem/${lowerName}";
+    var urlStr = "/subsystem/${lowerName}/${lowerName}";
 </script>
 </body>
 </html>

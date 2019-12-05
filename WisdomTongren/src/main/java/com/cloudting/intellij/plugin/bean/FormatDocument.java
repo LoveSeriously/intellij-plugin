@@ -3,10 +3,12 @@ package com.cloudting.intellij.plugin.bean;
 import java.util.List;
 
 /**
+ * 用于格式化输入文档。
+ *
  * @author lw
  * @date 2019-08-28
  */
-public class Ma {
+public class FormatDocument {
     private String name;
     private String tableName;
     private String description;

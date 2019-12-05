@@ -28,7 +28,6 @@ public class FormattingUI extends JDialog {
     private JPanel btnGroup;
     private JScrollPane scrollPane;
     private JTextArea tableContent;
-    private JPanel editorPane;
 
     public FormattingUI(CreateElementActionBase.MyInputValidator inputValidator) {
         this.myValidator = inputValidator;
@@ -75,8 +74,8 @@ public class FormattingUI extends JDialog {
         String descriptionContentText = descriptionContent.getText();
         String tableContentText = tableContent.getText();
         String tableName = tableNameContent.getText();
-        myValidator.checkInput(String.format("%s|%s|%s|%s", classNameText, tableName, descriptionContentText, tableContentText));
         dispose();
+        myValidator.checkInput(String.format("%s|%s|%s|%s", classNameText, tableName, descriptionContentText, tableContentText));
     }
 
     private void onCancel() {
@@ -86,7 +85,6 @@ public class FormattingUI extends JDialog {
     private void createUIComponents() {
         // TODO: place custom component creation code here
         this.btnGroup = new JPanel();
-        this.editorPane = new JPanel();
         this.contentPane = new JPanel();
         this.buttonOK = new JButton();
         this.buttonCancel = new JButton();

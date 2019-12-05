@@ -1,6 +1,6 @@
 package com.cloudting.intellij.plugin.core.action;
 
-import com.cloudting.intellij.plugin.bean.Ma;
+import com.cloudting.intellij.plugin.bean.FormatDocument;
 import com.cloudting.intellij.plugin.core.factory.CreateTemplateFactory;
 import com.cloudting.intellij.plugin.core.ui.FormattingUI;
 import com.intellij.CommonBundle;
@@ -43,12 +43,12 @@ public abstract class NewFileActionsBase extends CreateElementActionBase {
         return CommonBundle.getErrorTitle();
     }
 
-    protected PsiFile[] createJsp(final PsiDirectory directory, @NotNull Ma ma) throws IncorrectOperationException {
-        return CreateTemplateFactory.createJsp(directory, ma);
+    protected PsiFile[] createJsp(final PsiDirectory directory, @NotNull FormatDocument formatDocument) throws IncorrectOperationException {
+        return CreateTemplateFactory.createJsp(directory, formatDocument);
     }
 
-    protected PsiClass[] createJava(final PsiDirectory directory, @NotNull Ma ma) throws IncorrectOperationException {
-        return CreateTemplateFactory.createClass(directory, ma);
+    protected PsiClass[] createJava(final PsiDirectory directory, @NotNull FormatDocument formatDocument) throws IncorrectOperationException {
+        return CreateTemplateFactory.createClass(directory, formatDocument);
     }
 
     /**

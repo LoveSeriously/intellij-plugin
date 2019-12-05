@@ -10,6 +10,7 @@ public class DocumentsBean {
     private String type;                // 类型
     private String length;              // 长度
     private String remark;              // 备注
+    private String dictionary;          // 字典名
 
     public String getName() {
         return name;
@@ -49,5 +50,13 @@ public class DocumentsBean {
 
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    public String getDictionary() {
+        return dictionary;
+    }
+
+    public void setDictionary(String dictionary) {
+        this.dictionary = dictionary;
     }
 }

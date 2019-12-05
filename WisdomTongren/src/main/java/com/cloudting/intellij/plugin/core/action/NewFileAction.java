@@ -1,7 +1,7 @@
 package com.cloudting.intellij.plugin.core.action;
 
 import com.cloudting.intellij.plugin.bean.DocumentsBean;
-import com.cloudting.intellij.plugin.bean.Ma;
+import com.cloudting.intellij.plugin.bean.FormatDocument;
 import com.cloudting.intellij.plugin.core.config.Bundle;
 import com.cloudting.intellij.plugin.core.config.Icons;
 import com.cloudting.intellij.plugin.utils.ResolverUtils;
@@ -44,14 +44,14 @@ public class NewFileAction extends NewFileActionsBase {
 
         List<DocumentsBean> documentsBeans = ResolverUtils.getDocumentsBeans(tableContent);
 
-        Ma ma = new Ma();
-        ma.setName(name);
-        ma.setTableName(tableName);
-        ma.setDescription(description);
-        ma.setDocumentsBeans(documentsBeans);
+        FormatDocument formatDocument = new FormatDocument();
+        formatDocument.setName(name);
+        formatDocument.setTableName(tableName);
+        formatDocument.setDescription(description);
+        formatDocument.setDocumentsBeans(documentsBeans);
 
-        PsiFile[] jsp = createJsp(directory, ma);
-        PsiClass[] psiClass = createJava(directory, ma);
+        PsiFile[] jsp = createJsp(directory, formatDocument);
+        PsiClass[] psiClass = createJava(directory, formatDocument);
         List<PsiElement> array = new ArrayList<>();
         for (PsiFile psiFile : jsp) {
             array.add(psiFile);

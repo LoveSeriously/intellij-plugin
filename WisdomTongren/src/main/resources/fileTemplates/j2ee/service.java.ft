@@ -2,13 +2,9 @@
 
 import com.cloudting.urms.common.base.service.IBaseService;
 import com.cloudting.urms.common.utils.helper.Pager;
-import java.util.List
+import java.util.List;
 
-/**
- * ${description} Service接口.
- * @author: lw
- * @date: ${YEAR}-${MONTH}-${DAY}
- */
+#parse("File Header.java")
 
 public interface I${upperName}Service extends IBaseService {
 
