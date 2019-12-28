@@ -40,7 +40,7 @@
                                <label class="layui-form-label">$S.name</label>
                                #if ($S.type == "Date")## 时间
                                 <div class="layui-input-block">
-                                    <input type="text" class="layui-input" id="$S.field" name="$S.field" value='<fmt:formatDate value="${${lowerName}Vo.$S.field}" pattern="yyyy-MM-dd"/>' autocomplete="off"/>
+                                    <input type="text" class="layui-input" id="$S.field" name="$S.field" value='' autocomplete="off"/>
                                 </div>
                                 <script type="text/javascript">
                                     layui.use('laydate', function () {
@@ -54,11 +54,11 @@
                                 </script>
                                 #elseif($S.dictionary) ## 字典
                                  <div class="layui-input-block">
-                                        <opt:selectLayui dictKey="$S.dictionary" name="$S.field" value="${${lowerName}Vo.$S.field}" laySearch="true" isDefSelect="true"/>
+                                        <opt:selectLayui dictKey="$S.dictionary" name="$S.field" value="" laySearch="true" isDefSelect="true"/>
                                  </div>
                                 #else ##
                                 <div class="layui-input-block">
-                                    <input type="text" class="layui-input" id="$S.field" name="$S.field" value="${${lowerName}Vo.$S.field}" lay-verify="" lay-verType="tips" autocomplete="off"/>
+                                    <input type="text" class="layui-input" id="$S.field" name="$S.field" value="" lay-verify="" lay-verType="tips" autocomplete="off"/>
                                 </div>
                                 #end
                            </div>

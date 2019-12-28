@@ -39,6 +39,23 @@ private $d.type $d.field;                  //  #if($d.name)$d.name#end#**#      
     public ${TYPE} get$uName(){#**#
             return this.$d.field;
     }
+    #elseif(${TYPE} == "Double")#**#
+    @Column(columnDefinition="double(${LENGTH}) default '0.00'")
+    public ${TYPE} get$uName(){#**#
+            return this.$d.field;
+    }
+    #elseif(${TYPE} == "BigDecimal")#**#
+     #set($start = $LENGTH.substring(0, $LENGTH.indexOf(",")))#**#
+     #set($i = $LENGTH.indexOf(",") + 1)#**#
+     #set($end = $LENGTH.substring($i, $LENGTH.length()))#**#
+    @Column(precision = $start, scale = $end)#**#
+    public ${TYPE} get$uName(){#**#
+            return this.$d.field;
+    }
+    #elseif(${LENGTH} == '')#**#
+    public ${TYPE} get$uName(){#**#
+            return this.$d.field;
+    }
     #else#**#
     @Column(length = ${LENGTH})
     public ${TYPE} get$uName(){#**#

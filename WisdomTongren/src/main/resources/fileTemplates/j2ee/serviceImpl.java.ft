@@ -33,21 +33,21 @@ public class ${upperName}ServiceImpl extends BaseServiceImpl implements I${upper
     @Override
     public Pager queryEntityList(Integer page, Integer limit, ${upperName}Vo ${lowerName}Vo) {
         List<Criterion> criterionList = new ArrayList<>();
-        if(StringUtils.isNotBlank(${lowerName}Vo.getId())){ // $d.field #if($d.name)$d.name#end##
-            criterionList.add(Restrictions.eq("$d.field", ${lowerName}Vo.getId().trim()));
+        if(StringUtils.isNotBlank(${lowerName}Vo.getId())){
+            criterionList.add(Restrictions.eq("id", ${lowerName}Vo.getId().trim()));
         }
         #foreach($d in $documentsBeans)
-            #set ($uName = $d.field.substring(0, 1).toUpperCase() + $d.field.substring(1))
+            #set ($uName = $d.field.substring(0, 1).toUpperCase() + $d.field.substring(1))#**#
             #if($d.type=='String')
-                if(StringUtils.isNotBlank(${lowerName}Vo.get${uName}())){ // $d.field #if($d.name)$d.name#end##
+                if(StringUtils.isNotBlank(${lowerName}Vo.get${uName}())){ // $d.field #if($d.name)$d.name#end#**#
                     criterionList.add(Restrictions.like("$d.field", ${lowerName}Vo.get${uName}().trim(), MatchMode.ANYWHERE));
-                }
-            #else
-                if(null != ${lowerName}Vo.get${uName}()){// $d.field #if($d.name)$d.name#end##
+                }#**#
+            #else#**#
+                if(null != ${lowerName}Vo.get${uName}()){// $d.field #if($d.name)$d.name#end#**#
                     criterionList.add(Restrictions.eq("$d.field", ${lowerName}Vo.get${uName}()));
-                }
-            #end
-        #end
+                }#**#
+            #end#**#
+        #end#**#
         return this.${lowerName}DaoImpl.queryEntityList(page, limit, criterionList, Order.desc("createTime"), ${upperName}.class);
     }
 
@@ -58,7 +58,7 @@ public class ${upperName}ServiceImpl extends BaseServiceImpl implements I${upper
         if(StringUtils.isBlank(${lowerName}.getId())){
             this.save(${lowerName});
         }else{
-            ${lowerName} = gainModuleValue(${lowerName}, TestDemo.class, ${lowerName}.getId());
+            ${lowerName} = gainModuleValue(${lowerName}, ${upperName}.class, ${lowerName}.getId());
             ${lowerName}DaoImpl.updateEntity(${lowerName});
         }
         return ${lowerName};
