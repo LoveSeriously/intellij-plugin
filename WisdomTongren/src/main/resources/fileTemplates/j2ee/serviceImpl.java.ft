@@ -58,7 +58,6 @@ public class ${upperName}ServiceImpl extends BaseServiceImpl implements I${upper
         if(StringUtils.isBlank(${lowerName}.getId())){
             this.save(${lowerName});
         }else{
-            this.update(${lowerName});
             ${lowerName} = gainModuleValue(${lowerName}, TestDemo.class, ${lowerName}.getId());
             ${lowerName}DaoImpl.updateEntity(${lowerName});
         }
