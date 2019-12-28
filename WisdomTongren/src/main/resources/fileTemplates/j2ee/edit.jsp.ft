@@ -57,13 +57,13 @@
                                            <div class="layui-form-item">
                                                <label class="layui-form-label">$S.name</label>
                                                <div class="layui-input-block">
-                                                   <textarea class="layui-textarea" id="$S.field" name="$S.field" lay-verify="" lay-verType="tips" placeholder="">${${lowerName}Vo.$S.field}</textarea>
+                                                   <textarea class="layui-textarea" id="$S.field" name="$S.field" maxlength="$S.length" lay-verify="" lay-verType="tips" placeholder="">${${lowerName}Vo.$S.field}</textarea>
                                                </div>
                                            </div>
                                        </div>
                                     #else ##
                                         <div class="layui-input-block">
-                                            <input type="text" class="layui-input" id="$S.field" name="$S.field" value="${${lowerName}Vo.$S.field}" lay-verify="" lay-verType="tips" autocomplete="off"/>
+                                            <input type="text" class="layui-input" id="$S.field" name="$S.field" value="${${lowerName}Vo.$S.field}" maxlength="$S.length" lay-verify="" lay-verType="tips" autocomplete="off"/>
                                         </div>
                                     #end
                                 </div>
